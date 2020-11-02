@@ -1,0 +1,46 @@
+html,body{ min-width:1200px; height:100%; color: #333; background:url(../img/login_Bg.png) no-repeat left center; background-size:100% 100%}
+input,textarea,select,option{ outline: none; }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]{
+    -moz-appearance: textfield;
+}
+.blue{ color:#1677FF}
+.bgBlue{ background-color:#1677FF}
+
+.login{ 
+	position:absolute;
+	width: 440px; 
+	height: 400px;
+	top:50%;
+	right:11%;
+	transform: translate(0,-50%);
+	padding: 40px 30px; 
+	border-radius: 8px; 
+	border: 1px solid #979797; 
+	background-color: #fff;
+	
+}
+.login-top{ position: absolute; left: 0; top: 0; background-color:#fff; width: 100%; }
+.login-top P{ margin-left: 210px; height: 120px; line-height: 120px; }
+.login-top span{ font-size: 40px; font-weight: 600; margin-right: 25px; }
+.login-top em{ font-size: 24px; font-weight: 400; }
+.login form{ padding: 40px 0; }
+.login h1{ font-size:40px; height: 56px; line-height: 56px; }
+.login li{ padding: 10px 0 20px; }
+.login li p{ display: flex; align-items: center; height: 56px; line-height: 56px; border: 1px solid #ddd; border-radius: 4px; }
+.login li p span{ border-right: 1px solid #ddd; line-height: 30px; margin: 13px 20px 13px 0; padding: 0 15px; }
+.login li p span img{ vertical-align: -7px; }
+.login li input{ font-size: 14px; color: #999; box-sizing: border-box;}
+.login-btn span{ height: 64px; line-height:64px; background: #1C9399; border-radius: 4px; }
+.layui-form-checked[lay-skin=primary] i{
+    border-color: #1C9399!important;
+    background-color: #1C9399;
+    color: #fff;
+}
+.layui-form-checkbox[lay-skin=primary]:hover i{
+    border-color: #1C9399;
+    color: #fff;
+}

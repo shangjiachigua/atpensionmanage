@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../css/thesame.css" media="all">
+	<link rel="stylesheet" href="../css/headCss.css" media="all">
+	<link rel="stylesheet" href="../css/leftSidebar.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/rightCon.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/tree.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/page.css" media="all">
+</head>
+
+<body class="layui-layout-body">
+	<div class="layui-body pad12px">
+		<!-- 内容主体区域 -->
+		<div class="layui-box-con relative">
+			<div class="layui-left-con pad12px">
+				<div class="border-radius4 bgWhite box-shadows">
+					<!-- <div id="test13" class="layui-left-box"></div> -->
+					<div class="tree-con-box">
+						<ul class="tree-one">
+							<li>
+								<div class="tree-children">
+									<div>
+										<p class="tree-arrow cursor"><img src="../userInfo/img/icon_select_up.png"></p>
+										<p>111一级济阳街道</p>
+									</div>
+								</div>
+								<ul class="tree-two">
+									<li>
+										<div class="tree-children">
+											<div>
+												<p class="tree-arrow cursor"><img src="../userInfo/img/icon_select_up.png"></p>
+												<p>2222一级济阳街道</p>
+											</div>
+										</div>
+										<ul class="tree-three">
+											<li>
+												<div class="tree-children">
+													<div>
+														<p class="tree-arrow cursor"><img src="../userInfo/img/icon_select_up.png"></p>
+														<p>33333一级济阳街道</p>
+													</div>
+												</div>
+												<ul class="tree-four">
+													<li>
+														<div class="tree-children">
+															<div>
+																<p class="tree-arrow cursor"><img src="../userInfo/img/icon_select_up.png"></p>
+																<p>44444一级济阳街道</p>
+															</div>
+														</div>
+														<ul class="tree-five">
+															<li>
+																<div class="tree-children">
+																	<div>
+																		<p>55555一级济阳街道</p>
+																	</div>
+																</div>
+															</li>
+															<li>
+																<div class="tree-children">
+																	<div>
+																		<p>55555一级济阳街道</p>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<div class="tree-children">
+															<div>
+																<p>44444一级济阳街道</p>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</li>
+										</ul>
+										<ul class="tree-three">
+											<li>
+												<div class="tree-children">
+													<div>
+														<p class="tree-arrow cursor"><img src="../userInfo/img/icon_select_up.png"></p>
+														<p>33333一级济阳街道</p>
+													</div>
+												</div>
+												<ul class="tree-four">
+													<li>
+														<div class="tree-children">
+															<div>
+																<p class="tree-arrow cursor"><img src="../userInfo/img/icon_select_up.png"></p>
+																<p>44444一级济阳街道</p>
+															</div>
+														</div>
+														<ul class="tree-five">
+															<li>
+																<div class="tree-children">
+																	<div>
+																		<p>55555一级济阳街道</p>
+																	</div>
+																</div>
+															</li>
+															<li>
+																<div class="tree-children">
+																	<div>
+																		<p>55555一级济阳街道</p>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<div class="tree-children">
+															<div>
+																<p>44444一级济阳街道</p>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="layui-right-con">
+				<div class="layui-tab">
+					<ul class="layui-tab-title">
+						<li onclick="jumpUserInfoList()">健在老人</li>
+						<li class="layui-this">离世老人</li>
+					</ul>
+					<div class="layui-tab-content layui-right-box bgWhite box-shadows border-radius4">
+						<div class="layui-tab-item layui-show">
+							<div class="pad20px">
+								<nav class="layui-form more-date">
+									<ul>
+										<li>
+											<div>户籍</div> 
+											<div> 
+												<p><input type="radio" name="householdRegister" value="" title="全部" checked></p>
+												<p  th:each="list:${householdRegisterList}">
+													<input type="radio" name="householdRegister" th:value="${list.labelCode}" th:title="${list.labelName}">
+												</p>
+											</div>
+										</li>
+										<li>
+											<div>所在地区</div>
+											<div>
+												<p><input type="radio" name="location" value="" title="全部" checked></p>
+												<p  th:each="list:${locationList}">
+													<input type="radio" name="location" th:value="${list.labelCode}" th:title="${list.labelName}">
+												</p>
+											</div>
+										</li>
+										<li>
+											<div>过世年龄</div>
+											<div>
+												<p><input type="radio" name="age" value="" title="全部" checked></p>
+												<p><input type="radio" name="age" value="1" title="60岁以下"></p>
+												<p><input type="radio" name="age" value="2" title="60-69岁"></p>
+												<p><input type="radio" name="age" value="3" title="70-79岁"></p>
+												<p><input type="radio" name="age" value="4" title="90-99岁"></p>
+												<p><input type="radio" name="age" value="5" title="100岁及以上"></p>
+						
+											</div>
+										</li>
+										<li>
+											<div>性别</div>
+											<div>
+												<p><input type="radio" name="userSex" value="" title="全部" checked></p>
+												<p><input type="radio" name="userSex" value="1" title="男"></p>
+												<p><input type="radio" name="userSex" value="2" title="女"></p>
+						
+											</div>
+										</li>
+										<li>
+											<div>死亡时间段</div>
+											<div class="time-con">
+												<p class="overflow">
+													<span class="left">开始时间：</span>
+													<span class="left"><input type="text" id="deathStartDate" class="layui-input layui-time test-item1" style="margin-top: 4px"></span>
+												</p>
+												<p class="overflow">
+													<span class="left">结束时间：</span>
+													<span class="left"><input type="text" id="deathEndDate"   class="layui-input layui-time test-item2" style="margin-top: 4px"></span> 
+												</p>
+											</div>
+										</li>
+										
+									</ul>
+									<div class="pt15px pb15px textRight">
+										<p class="layui-btn" onclick="query()">查&nbsp;询</p>
+										<p class="layui-btn layui-btn-primary"  onclick="reset()">重&nbsp;置</p>
+										
+									</div>
+								</nav>
+								<div class="more-table-con relative">
+									<div class="mt20px mb20px lh32px overflow add-btn-input">
+										
+										<p class="right">
+											<input type="text" id="searchContent" class="layui-input" placeholder="请输入老人姓名进行搜索">
+											<span>
+												<img src="../userInfo/img/icon_search.png">
+											</span>
+										</p>
+									</div>
+									<div class="layui-tab">
+										
+										<div class="layui-tab-content padding0">
+											<div class="layui-tab-item layui-show relative">
+												<table class="layui-hide" id="test" lay-filter="test">
+													
+												</table>
+												<div class="number-page">
+													共有<span class="red" id="totalNum">0</span>条数据
+												</div>
+											</div>
+											<!-- <div class="layui-tab-item">内容2</div>
+											<div class="layui-tab-item">内容3</div>
+											<div class="layui-tab-item">内容4</div>
+											<div class="layui-tab-item">内容5</div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- <div class="layui-tab-item">内容2</div>
+						<div class="layui-tab-item">内容3</div> -->
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+	</div>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../userinfo/js/treeTwo.js"></script>
+<script>
+
+	$(function(){
+		layui.use(['laydate'], function() {
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '.test-item1',
+				trigger: 'click',
+			});
+			laydate.render({
+				elem: '.test-item2',
+				trigger: 'click',
+			});
+		});
+
+		//分页查询
+		query();
+	})
+	
+
+	//跳转健在老人列表
+	function jumpUserInfoList(){
+		window.location.href="../userInfo/jumpUserInfoList";
+	}
+
+	//重置
+	function reset(){
+		$("input[name='householdRegister']").eq(0).prop("checked",true);//户籍
+		$("input[name='location']").eq(0).prop("checked",true); //所在地区
+		$("input[name='age']").eq(0).prop("checked",true);//年龄段
+		$("input[name='userSex']").eq(0).prop("checked",true); //性别
+		$("#searchContent").val("");//关键字
+		$("#deathStartDate").val("");//死亡开始时间
+		$("#deathEndDate").val("");//死亡结束时间
+		layui.form.render();//***
+	}
+
+	function resetCheckBox(name){
+		$("input[name='"+name+"']").each(function(i){
+			if (isNull($(this).val())) {
+				$(this).prop("checked",true);
+			}else{
+				$(this).prop("checked",false);
+			}
+		})
+
+
+	}
+
+	//查询
+	function query(){
+
+		var deathStartDate = $("#deathStartDate").val();//死亡开始时间
+		var deathEndDate = $("#deathEndDate").val();//死亡结束时间
+
+		if (isNull(deathStartDate) && !isNull(deathEndDate)) {
+			layer.msg('死亡时间段选择有误,请重新选择', {time: 2000});
+			return;
+		}
+		if (!isNull(deathStartDate) && isNull(deathEndDate)) {
+			layer.msg('死亡时间段选择有误,请重新选择', {time: 2000});
+			return;
+		}
+		if (!isNull(deathStartDate) && !isNull(deathEndDate)) {
+			if (compareDate(deathStartDate,deathEndDate)) {
+				layer.msg('死亡时间段选择有误,请重新选择', {time: 2000});
+				return;
+			}
+		}
+
+		//左侧菜单栏
+		layui.use(['table'], function() {
+			var table = layui.table;
+			//表格
+			
+			//第一个实例
+			table.render({
+				elem: '#test'//,url: '/demo/table/user/'
+				,url:"../userInfo/getUserInfoPageListOfDeath"
+				,where: getformDate()
+				,request: {
+					 pageName: 'currentPage' //页码的参数名称，默认：page
+					 ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+				}
+				//,count: 10  //数据总数，从服务端得到
+				//,data: listData
+				,page: true //开启分页
+				,limit:10 //每页显示的条数
+				//,limits:[3,4,5]
+				,groups: 9 //连续页码个数
+				,parseData:function(res){
+					return{
+						"code":res.code,
+						"data":res.data.data,
+						"count":res.data.totalCount,
+						"limit":res.data.pageSize,
+					};
+				}
+				,cols: [
+					[ //表头
+						{
+							field: 'userNo',
+							title: '序号',
+							fixed: 'left',
+							type: 'numbers',
+						}, {
+							field: 'userName',
+							title: '姓名',
+						}, {
+							field: 'userSex',
+							title: '性别',
+						}, {
+							field: 'age',
+							title: '享年',
+						}, {
+							field: 'deathDate',
+							title: '离世日期',
+						}, {
+							field: 'deathReason',
+							title: '离世原因',
+						}, {
+							field: 'operation',
+							title: '操作',
+							style: 'color:#1C9399;',
+							fixed: 'right',
+							templet: function(res){
+								return '<div class="table-list-btn"><span onclick="getdetail(\''+res.userNo+'\')">查看</span>|<span onclick="editUserInfo(\''+res.userNo+'\')">编辑</span>|<span  onclick="deleteUserInfo(\''+res.userNo+'\')">删除</span></div>';
+							}
+						}
+					]
+				]
+				,done:function(res, curr, count){
+				    $("#totalNum").text(count);
+				}
+			});
+		});
+	}
+
+
+	//查看
+	function getdetail(userNo){
+		console.log("查看--"+userNo);
+	}
+	//编辑
+	function editUserInfo(userNo){
+		window.location.href="../userInfo/jumpUserInfoUpdate?userNo="+userNo;
+	}
+	//删除
+	function deleteUserInfo(userNo){
+		console.log("删除--"+userNo);
+	}
+
+
+	//获取发送的数据
+	function getformDate(){
+		var householdRegister = $("input:radio[name='householdRegister']:checked").val(); //户籍
+		var location = $("input:radio[name='location']:checked").val(); //所在地区
+		var age =  $("input:radio[name='age']:checked").val(); //年龄段
+		var userSex =  $("input:radio[name='userSex']:checked").val(); //性别
+		var searchContent = $("#searchContent").val();//关键字
+		var deathStartDate = $("#deathStartDate").val();//死亡开始时间
+		var deathEndDate = $("#deathEndDate").val();//死亡结束时间
+
+
+		var formDate ={
+			householdRegister : householdRegister,
+			location : location,
+			age : age,
+			userSex : userSex,
+			searchContent : searchContent,
+			deathStartDate:deathStartDate,
+			deathEndDate:deathEndDate,
+		}
+		return formDate;
+	}
+
+
+	function compareDate(d1,d2){
+	　　return ((new Date(d1.replace(/-/g,"\/"))) >  (new Date(d2.replace(/-/g,"\/"))));
+	}
+
+
+	function isNull(value) {
+		return value == null || value === "" || value === undefined;
+	}
+
+
+
+</script>
+</body>
+
+</html>

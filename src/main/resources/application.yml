@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  servlet:
+    context-path:
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  datasource:
+    username: root
+    password: caifulife@88
+    url: jdbc:mysql://101.133.128.204:3306/pension?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    #懒加载
+    aggressive-lazy-loading: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    cache-enabled: true #字段是空也返回
+    check-config-location: true #项目启动会检查xml配置存在
+    global-config:
+    db-config:
+      db-type: mysql
+      field-strategy: ignored #ignored  不管有没有有设置属性，所有的字段都会设置到insert语句中，如果没设置值，全为null
+
+#上传图片路径
+file.upload:
+    path: /usr/local/tomcat/wechatChangzheng/
+    result.path: http://test:caifushequ:xyz/wechatChangzheng/
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true
+
+
+

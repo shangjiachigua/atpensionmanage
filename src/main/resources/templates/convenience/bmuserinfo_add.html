@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/thesame.css" media="all">
+    <link rel="stylesheet" href="../bmuserinfo/css/rightCon.css" media="all">
+    <link rel="stylesheet" href="../bmuserinfo/css/page.css" media="all">
+    <link rel="stylesheet" href="../bmuserinfo/css/tree.css" media="all">
+    <link rel="stylesheet" href="../bmuserinfo/css/popCss.css" media="all">
+</head>
+
+<body class="layui-layout-body">
+<div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div class="add-title pad25px"><span class="mr10px"><img src="../bmuserinfo/img/return_icon.png"></span><span>老人列表</span></div>
+    <div class="new-add-box bgWhite box-shadows border-radius4">
+        <div class="new-add-box-scroll">
+            <div class="border-bot1px pb20px mb20px">
+                <div class="add-mess add-mess-con">
+                    <div class="add-mess-child">
+                        <div>
+                            <label>行政区域：</label>
+                        </div>
+                        <div class="add-mess-form">
+                            <p class="add-mess-form-tree"><input type="text" placeholder="请输入" class="form-input"></p>
+                            <div class="tree-con-box">
+                                <div class="border-bot1px pl20px pr20px lh45px gray"><span class="mr10px">/</span><span>无上级组织</span></div>
+                                <ul class="tree-one">
+                                    <li>
+                                        <div class="tree-children">
+                                            <div>
+                                                <p class="tree-arrow cursor"><img src="../bmuserinfo/img/icon_select_up.png"></p>
+                                                <p>111一级济阳街道</p>
+                                            </div>
+                                        </div>
+                                        <ul class="tree-two">
+                                            <li>
+                                                <div class="tree-children">
+                                                    <div>
+                                                        <p class="tree-arrow cursor"><img src="../bmuserinfo/img/icon_select_up.png"></p>
+                                                        <p>2222一级济阳街道</p>
+                                                    </div>
+                                                </div>
+                                                <ul class="tree-three">
+                                                    <li>
+                                                        <div class="tree-children">
+                                                            <div>
+                                                                <p class="tree-arrow cursor"><img src="../bmuserinfo/img/icon_select_up.png"></p>
+                                                                <p>33333一级济阳街道</p>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="tree-four">
+                                                            <li>
+                                                                <div class="tree-children">
+                                                                    <div>
+                                                                        <p class="tree-arrow cursor"><img src="../bmuserinfo/img/icon_select_up.png"></p>
+                                                                        <p>44444一级济阳街道</p>
+                                                                    </div>
+                                                                </div>
+                                                                <ul class="tree-five">
+                                                                    <li>
+                                                                        <div class="tree-children">
+                                                                            <div>
+                                                                                <p>55555一级济阳街道</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="tree-children">
+                                                                            <div>
+                                                                                <p>55555一级济阳街道</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <div class="tree-children">
+                                                                    <div>
+                                                                        <p>44444一级济阳街道</p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                                <ul class="tree-three">
+                                                    <li>
+                                                        <div class="tree-children">
+                                                            <div>
+                                                                <p class="tree-arrow cursor"><img src="../bmuserinfo/img/icon_select_up.png"></p>
+                                                                <p>33333一级济阳街道</p>
+                                                            </div>
+                                                        </div>
+                                                        <ul class="tree-four">
+                                                            <li>
+                                                                <div class="tree-children">
+                                                                    <div>
+                                                                        <p class="tree-arrow cursor"><img src="../bmuserinfo/img/icon_select_up.png"></p>
+                                                                        <p>44444一级济阳街道</p>
+                                                                    </div>
+                                                                </div>
+                                                                <ul class="tree-five">
+                                                                    <li>
+                                                                        <div class="tree-children">
+                                                                            <div>
+                                                                                <p>55555一级济阳街道</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="tree-children">
+                                                                            <div>
+                                                                                <p>55555一级济阳街道</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                            <li>
+                                                                <div class="tree-children">
+                                                                    <div>
+                                                                        <p>44444一级济阳街道</p>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-mess-child">
+                        <div>
+                            <label>性别：</label>
+                        </div>
+                        <div class="add-mess-form">
+                            <p>
+                                <select class="form-input" id="userSex">
+                                    <option value="">性别</option>
+                                    <option value="1">男</option>
+                                    <option value="2">女</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="add-mess-child">
+                        <div>
+                            <label>姓名：</label>
+                        </div>
+                        <div class="add-mess-form">
+                            <p>
+                                <input id="userName" type="text" placeholder="请输入姓名" maxlength="10">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-mess add-mess-con add-mess-con-block mt15px">
+                    <div class="add-mess-child">
+                        <div>
+                            <label>年龄：</label>
+                        </div>
+                        <div class="add-mess-form">
+                            <p>
+                                <input id="age" type="number" oninput="if(value.length>5)value=value.slice(0,4)" placeholder="请输入年龄">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="overflow">
+                        <span class="white border-radius4 bgGreen left pl20px pr20px ml30px lh34px" id="serchBtn">查&nbsp;询</span>
+                        <span class="border-radius4 border1px-ddd left pl20px pr20px ml30px lh32px" id="reset">重&nbsp;置</span>
+                    </div>
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <div class="mb20px lh32px overflow add-btn-input">
+                <div class="layui-btn-group demoTable">
+                    <p class="left cursor">
+                        <span class="white border-radius4 bgGreen inline-block pl15px pr15px layui-btn" data-type="getCheckData"><img src="../bmuserinfo/img/button_add.png">添加老人</span>
+                    </p>
+                </div>
+                <p class="right">共有<span class="red" id="count"></span>条数据</p>
+            </div>
+            <div class="border1px border-radius4 relative mb40px">
+                <table class="layui-hide" id="test" lay-filter="test"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹层-->
+<div id="pop-con" style="display:none;">
+    <div class="pop-up">
+        <div>
+            <div class="pop-title relative overflow mb15px">
+                <span class="ml15px">编辑</span>
+                <p class="right"><img src="../bmuserinfo/img/close_icon.png" class="block pop-close"></p>
+            </div>
+            <div class="pop-form mt30px mb30px">
+                <div class="layui-form-item lh32px">
+                    <label class="left">发放数量：</label>
+                    <span class="left" style="width: 300px;">
+								<input type="number" id="coupons" oninput="if(value.length>5)value=value.slice(0,5)" placeholder="请输入数量" class="layui-input">
+							</span>
+                    <label class="right">张/人/年</label>
+                </div>
+            </div>
+            <div class="btn-con textCenter">
+                <span class="btn-one pop-close">取&nbsp;消</span>
+                <span class="btn-two" id="fix" onclick="fix">确&nbsp;定</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../bmuserinfo/js/treeTwo.js"></script>
+<script th:inline="javascript">
+
+    var type = [[${type}]]
+
+
+    $(function () {
+        getData();
+
+        $("#serchBtn").click(function () {
+            getData();
+        });
+
+        $("#reset").click(function () {
+            $("#userName").val("");
+            $("#userSex").val("");
+            $("#age").val("");
+            getData();
+        })
+    });
+
+    function getData() {
+        layui.use(['element', 'table', 'layer'], function () {
+            var element = layui.element;
+            var table = layui.table;
+            var layer = layui.layer;
+            var userName = $("#userName").val();
+            var userSex = $("#userSex").val();
+            var age = $("#age").val();
+            //第一个实例
+            table.render({
+                elem: '#test'//,url: '/demo/table/user/'
+                , url: "../bmuserinfo/getBmUserInfoPageList"
+                , where: {age: age, userName: userName, userSex: userSex}
+                // , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+                // , toolbar: true
+                // , defaultToolbar: []
+                , request: {
+                    pageName: 'currentPage' //页码的参数名称，默认：page
+                    , limitName: 'pageSize' //每页数据量的参数名，默认：limit
+                }
+                //,count: 10  //数据总数，从服务端得到
+                //,data: listData
+                , page: true //开启分页
+                , limit: 10 //每页显示的条数
+                //,limits:[3,4,5]
+                , groups: 9 //连续页码个数
+                , parseData: function (res) {
+                    console.log(res);
+                    return {
+                        "code": res.code,
+                        "data": res.data.data,
+                        "count": res.data.totalCount,
+                        "limit": res.data.pageSize,
+                    };
+                },
+                cols: [
+                    [ //表头
+                        {
+                            type: 'checkbox',
+                            fixed: 'left'
+                        }, {
+                        field: 'id',
+                        title: '序号',
+                        type: 'numbers',
+                    }, {
+                        field: 'userName',
+                        title: '姓名',
+                    }, {
+                        field: 'householdRegister',
+                        title: '户籍类型',
+                    }, {
+                        field: 'belongOrganization',
+                        title: '管辖机构',
+                    }, {
+                        field: 'userSex',
+                        title: '性别',
+                    }, {
+                        field: 'age',
+                        title: '年龄',
+                    }, {
+                        field: 'socialSecurityType',
+                        title: '社保类型',
+                    }, {
+                        field: 'pensionStatus',
+                        title: '养老状况',
+                    }
+                    ]
+                ], done: function (res, curr, count) {
+                    $("#count").text(count);
+                }
+            });
+            //监听表格复选框选择
+            table.on('checkbox(test)', function (obj) {
+                console.log(obj)
+            });
+
+            layui.$, active = {
+                getCheckData: function () { //跳转添加老人页
+                    var checkboxValue = ""
+                    var checkStatus = table.checkStatus('test')
+                        , data = checkStatus.data;
+                    if (data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            checkboxValue += data[i].userNo + ",";
+                        }
+                        //弹层
+                        layerOpen();
+                        //添加
+                        $("#fix").click(function () {
+                            addBmUserinfo(checkboxValue.slice(0, checkboxValue.length - 1));
+                        })
+                    } else {
+                        layer.msg("请选择老人");
+                    }
+                }
+            };
+
+            $('.demoTable .layui-btn').on('click', function () {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+        });
+    }
+
+    //添加优惠老人信息
+    function addBmUserinfo(ids) {
+        var coupons = $("#coupons").val();
+        var data = {ids: ids, type: type, coupons: coupons};
+        layer.closeAll();
+        $.ajax({
+            url: "../bmuserinfo/addBmUserinfo",
+            type: "post",
+            async: false,
+            dataType: "json",
+            data: data,
+            success: function (result) {
+                if (result.code == 200) {
+                    layer.msg(result.msg);
+                } else {
+                    layer.msg(result.msg);
+                }
+            }
+        });
+    }
+
+    //弹层
+    function layerOpen() {
+        layer.open({
+            type: 1,
+            title: false, //不显示标题栏
+            closeBtn: false,
+            area: ['500px', ''],
+            shade: 0.6,
+            id: 'payCons', //设定一个id，防止重复弹出
+            /*,btn: ['确认支付']*/
+            btnAlign: 'c',
+            moveType: 1, //拖拽模式，0或者1
+            shadeClose: true, //设置允许点遮罩关闭
+            content: $("div#pop-con"),
+            success: function () {
+                //关闭弹层
+                $(".pop-close").click(function () {
+                    layer.closeAll();
+                });
+            },
+
+        });
+    }
+</script>
+</body>
+
+</html>

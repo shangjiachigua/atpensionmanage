@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8"></meta>
+	<title></title>
+	<meta name="renderer" content="webkit"></meta>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"></meta>
+	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
+	<meta name="format-detection" content="telephone=no"></meta>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/layui/css/layui.css'}"  media="all"></link>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/css/thesame.css'}" media="all"></link>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/css/headCss.css'}" media="all"></link>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/css/footer.css'}" media="all"></link>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/userinfo/css/popCss.css'}" media="all"></link>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/userinfo/css/rightCon.css'}" media="all"></link>
+	<link rel="stylesheet" th:href="@{${baseUrl}+'/userinfo/css/pdfCss.css'}" media="all"></link>
+
+
+</head>
+
+<style type="text/css">
+   
+</style>
+<body class="layui-layout-body"   style = "font-family: SimSun;">
+	<div class="layui-body">
+		<!-- 内容主体区域 -->
+		<div class="new-add-box bgWhite box-shadows border-radius4 ">
+			<div class="new-add-box-scroll">
+				<div class="mb25px">
+					<div class="new-add-title relative overflow mb15px">
+						<span class="ml15px">基本信息</span>
+					</div>
+					<article class="new-add-right">
+						<dl class="inline-block relative">
+							<dt>
+								<p class="filejs" th:if="${ #strings.isEmpty(userInfo.imgPath) }">
+									<img src="../userInfo/img/moren.png" class="bock"></img>
+								</p>
+								<p class="filejs" th:if="${not #strings.isEmpty(userInfo.imgPath) }">
+									<img th:src="${userInfo.imgPath}" class="bock"></img>
+								</p>
+							</dt>
+						</dl>
+					</article>
+					<div class="new-add-con new-add-form pb25px border-bot1px">
+						<article class="new-add-left new-add-form-con">
+							<ul class="overflow lh32px">
+								<li>
+									<p><label>姓名：</label></p>
+									<p th:text="${userInfo.userName}"></p>
+								</li>
+								<li>
+									<p><label>年龄：</label></p>
+									<p th:text="${userInfo.age}+'岁'"></p>
+								</li>
+								<li>
+									<p><label>性别：</label></p>
+									<p th:text="${userInfo.userSex}"></p>
+								</li>
+								<li>
+									<p><label>出生日期：</label></p>
+									<p th:text="${userInfo.birthDate}"></p>
+								</li>
+								<li>
+									<p><label>证件类型：</label></p>
+									<p th:text="${userInfo.certificateType}"></p>
+								</li>
+								<li>
+									<p><label>证件编号：</label></p>
+									<p th:text="${userInfo.userPid}"></p>
+								</li>
+								<li>
+									<p><label>户籍：</label></p>
+									<p th:text="${userInfo.householdRegister}"></p>
+								</li>
+								<li>
+									<p><label>民族：</label></p>
+									<p th:text="${userInfo.nation}"></p>
+								</li>
+								<li>
+									<p><label>所在地区：</label></p>
+									<p th:text="${userInfo.location}"></p>
+								</li>
+								<li>
+									<p><label>婚姻状况：</label></p>
+									<p th:text="${userInfo.marriage}"></p>
+								</li>
+								<li>
+									<p><label>户籍地址：</label></p>
+									<p th:text="${userInfo.registerAddress}"></p>
+								</li>
+								<li>
+									<p><label>户籍行政区：</label></p>
+									<p th:text="${userInfo.registerAreaOfResidence}"></p>
+								</li>
+								<li>
+									<p><label>居住地址：</label></p>
+									<p th:text="${userInfo.liveAddress}"></p>
+								</li>
+								<li>
+									<p><label>居住行政区：</label></p>
+									<p th:text="${userInfo.liveAreaOfResidence}"></p>
+								</li>
+								<li>
+									<p><label>社保类型：</label></p>
+									<p th:text="${userInfo.socialSecurityType}"></p>
+								</li>
+								<li>
+									<p><label>社保卡号：</label></p>
+									<p th:text="${userInfo.socialSecurityCardNo}"></p>
+								</li>
+								<li>
+									<p><label>手机号码：</label></p>
+									<p th:text="${userInfo.mobile}"></p>
+								</li>
+								<li>
+									<p><label>固定号码：</label></p>
+									<p th:text="${userInfo.tel}"></p>
+								</li>
+								<li>
+									<p><label>文化程度：</label></p>
+									<p th:text="${userInfo.degreeOfEducation}"></p>
+								</li>
+								<li>
+									<p><label>政治面貌：</label></p>
+									<p th:text="${userInfo.political}"></p>
+								</li>
+								<li>
+									<p><label>退休单位：</label></p>
+									<p th:text="${userInfo.retireCompany}"></p>
+								</li>
+								<li>
+									<p><label>退休工资：</label></p>
+									<p th:text="${userInfo.retireSalary}"></p>
+								</li>
+								<li>
+									<p><label>职业：</label></p>
+									<p th:text="${userInfo.occupation}"></p>
+								</li>
+								<li>
+									<p><label>退休时间：</label></p>
+									<p th:text="${userInfo.retireTime}"></p>
+								</li>
+								<li>
+									<p><label>所属管辖机构：</label></p>
+									<p th:text="${userInfo.registerAreaOfResidence}"></p>
+								</li>
+								<li>
+									<p><label>居住状态：</label></p>
+									<p th:text="${userInfo.liveCondition}"></p>
+								</li>
+								<li>
+									<p><label>当前状态：</label></p>
+									<p th:text="${userInfo.status}"></p>
+								</li>
+							</ul>
+						</article>
+						
+					</div>
+				</div>
+				<div class="mb25px  pb25px border-bot1px">
+					<div class="new-add-title relative overflow mb15px"><span class="ml15px">主要联系人</span></div>
+					<div class="border1px border-radius4">
+						<table class="layui-table layui-table-header">
+							<thead>
+								<tr>
+									<th>行号</th>
+									<th>姓名</th>
+									<th>与本人关系</th>
+									<th>固定电话</th>
+									<th>详细地址</th>
+									<th>手机号码</th>
+									<th>紧急联系人</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr  th:each="contact:${userInfo.userInfoContactList}">
+									<td th:text="${contactStat.index+1}"></td>
+									<td th:text="${contact.contactName}"></td>
+									<td th:text="${contact.relationship}"></td>
+									<td th:text="${contact.tel}"></td>
+									<td th:text="${contact.address}"></td>
+									<td th:text="${contact.mobile}"></td>
+									<td th:if="${contact.isEmergencyContact}==1">
+										是
+									</td>
+									<td th:if="${contact.isEmergencyContact}==2">
+										
+									</td>
+								</tr>
+								<!-- <tr>
+									<td>1</td>
+									<td>小茗同学</td>
+									<td>配偶</td>
+									<td>9999898989</td>
+									<td>上海市普陀区中江路</td>
+									<td></td>
+									<td></td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="mb25px">
+					<div class="new-add-title relative overflow mb15px"><span class="ml15px">健康状况</span></div>
+					<ul class="overflow new-add-textarea pb25px border-bot1px">
+						<li class="relative">
+							<p style="width:150px"><label>健康状况既往疾病史：</label></p>
+							<p th:text="${userInfo.healthDescription}"></p>
+						</li>
+					</ul>
+				</div>
+				<div class="mb25px">
+					<div class="new-add-title relative overflow mb15px"><span class="ml15px">服务类型</span></div>
+					<div class="new-add-con pb25px border-bot1px">
+						<article class="new-add-left new-add-left-two">
+							<ul class="overflow">
+								<li>
+									<p><label>目前养老状况：</label></p>
+									<p th:text="${userInfo.pensionStatus}"></p>
+								</li>
+								<li class="width-three layui-form">
+									<p><label>照顾人群：</label></p>
+									<p th:text="${userInfo.careCrowd}"></p>
+								</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+				<div class="mb25px">
+					<div class="new-add-title relative overflow mb15px"><span class="ml15px">其他标签</span></div>
+					<div class="pb25px border-bot1px">
+						<ul class="layui-form layui-form-color">
+							<li class="overflow mb10px">
+								<p class="left"><label>居家情况：</label></p>
+								<p class="left" th:text="${userInfo.liveHomeStatus}"></p>
+							</li>
+							<li class="overflow mb10px">
+								<p class="left"><label>持证情况：</label></p>
+								<p class="left" th:text="${userInfo.holdCertificateStatus}"></p>
+							</li>
+							<li class="overflow mb10px">
+								<p class="left"><label>认知情况：</label></p>
+								<p class="left" th:text="${userInfo.cognitionStatus}"></p>
+							</li>
+							<li class="overflow mb10px">
+								<p class="left"><label>涉外情况：</label></p>
+								<p class="left" th:text="${userInfo.foreignIdentityStatus}"></p>
+							</li>
+							<li class="overflow mb10px">
+								<p class="left"><label>安全情况：</label></p>
+								<p class="left" th:text="${userInfo.safeStatus}"></p>
+							</li>
+							<li class="overflow mb10px">
+								<p class="left"><label>健康情况：</label></p>
+								<p class="left" th:text="${userInfo.healthStatus}"></p>
+							</li>
+							<li class="overflow mb10px">
+								<p class="left"><label>其他情况：</label></p>
+								<p class="left" th:text="${userInfo.otherStatus}"></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<!-- <script src="../js/echarts.min.js" charset="utf-8"></script> -->
+<!-- <script src="../userinfo/js/data1.js" charset="utf-8"></script> -->
+<script>
+
+</script>	
+</body>
+
+</html>

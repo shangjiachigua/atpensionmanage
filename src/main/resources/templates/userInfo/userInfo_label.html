@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../css/thesame.css" media="all">
+	<link rel="stylesheet" href="../css/headCss.css" media="all">
+	<link rel="stylesheet" href="../css/leftSidebar.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/rightCon.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/page.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/popCss.css" media="all">
+</head>
+
+<body class="layui-layout-body">
+
+	<input type="hidden" id="parentCode" value="">
+
+	<div class="layui-body pad12px">
+		<!-- 内容主体区域 -->
+		<div class="layui-box-con relative">
+			<div class="layui-left-con layui-left-label-con pad12px">
+				<div class="border-radius4 bgWhite box-shadows">
+					<div class="new-add-box-scroll">
+						<nav class="label-nav-con">
+							<div class="f16px"><img src="../userinfo/img/icon_label.png">标签类别</div>
+							<ul class="lh40px f14px">
+								<!-- <li class="current">居家情况</li>
+								<li>认知情况</li>
+								<li>居家情况</li>
+								<li>认知情况</li>
+								<li>居家情况</li>
+								<li>认知情况</li> -->
+								<li  th:each="label:${pensionLabel}" th:value="${label.labelCode}" th:text="${label.labelName}"></li>
+
+
+								<!-- <span th:each="list:${healthStatusList}">
+									<input type="checkbox" name="healthStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span> -->
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div class="layui-right-con layui-right-label-con" >
+				<div class="border-radius4 bgWhite box-shadows">
+					<div class="scroll-box-con">
+						<div class="mb20px lh32px overflow add-btn-input">
+							<p class="left cursor">
+								<span onclick="addLayerOpen()" class="white border-radius4 bgGreen inline-block pl15px pr15px">
+									<img src="../userinfo/img/button_add.png">新建
+								</span>
+							</p>
+						</div>
+						<div class="border1px border-radius4 relative mb40px">
+							<table class="layui-hide" id="test" lay-filter="test"></table>
+							<div class="number-page">共有<span id="totalNum" class="red"></span>条数据</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div id="pop-con-update" style="display: none;">
+		<div class="pop-up">
+			<div>
+				<div class="pop-title relative overflow mb15px">
+					<span class="ml15px">编辑</span>
+					<p class="right"><img src="../userinfo/img/close_icon.png" class="block pop-close"><p>
+				</div>
+				<div class="pop-form mt30px mb30px">
+					<div class="layui-form-item">
+						<label class="layui-form-label"><span class="red">*</span>标签名称</label>
+						<div class="layui-input-block">
+							<input type="text" id="updateLabelName" placeholder="请输入标签名称" class="layui-input">
+							<input type="hidden" id="updateLabelCode" value="">
+						</div>
+					</div>
+				</div>
+				<div class="btn-con textCenter">
+					<span class="btn-one" onclick="cancel()">取&nbsp;消</span>
+					<span class="btn-two" onclick="confirmUpdate()">提&nbsp;交</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pop-con-add" style="display: none;"> 
+		<div class="pop-up">
+			<div>
+				<div class="pop-title relative overflow mb15px">
+					<span class="ml15px">新增</span>
+					<p class="right"><img src="../userinfo/img/close_icon.png" class="block pop-close"><p>
+				</div>
+				<div class="pop-form mt30px mb30px">
+					<div class="layui-form-item">
+						<label class="layui-form-label"><span class="red">*</span>标签名称</label>
+						<div class="layui-input-block">
+							<input type="text" id="addLabelName" placeholder="请输入标签名称" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="btn-con textCenter">
+					<span class="btn-one" onclick="cancel()">取&nbsp;消</span>
+					<span class="btn-two" onclick="confirmAdd()">提&nbsp;交</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <script type="text/html" id="barDemo">
+	  <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script> -->
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../userinfo/js/treeTwo.js"></script>
+<script>
+	$(function(){
+		//标签管理选中样式
+		$('.label-nav-con li').click(function() {
+			$(this).addClass('current').siblings().removeClass('current');
+			//加载列表
+			getlabelList($(this).attr("value"));
+			setParentCodeValue($(this).attr("value"));
+		})
+		//给第一个加上current
+		if ($('.label-nav-con li').length>0) {
+			$('.label-nav-con li')[0].classList.add("current");
+		}
+		
+		layui.use(['element', 'table', 'layer'], function() {
+			
+		});
+
+		//加载列表
+		getlabelList($('.label-nav-con li').attr("value"));
+		setParentCodeValue($('.label-nav-con li').attr("value"));
+	})
+
+	function setParentCodeValue(val){
+		$("#parentCode").val(val);
+	}
+
+	//获取列表
+	function getlabelList(labelCode){
+		//左侧菜单栏
+		layui.use(['table'], function() {
+			var table = layui.table;
+			
+			//第一个实例
+			table.render({
+				elem: '#test'//,url: '/demo/table/user/'
+				,url:"../userInfo/getLabelListByLabelCodePagination"
+				,where: {"labelCode":labelCode}
+				,request: {
+					 pageName: 'currentPage' //页码的参数名称，默认：page
+					 ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+				}
+				//,count: 10  //数据总数，从服务端得到
+				//,data: listData
+				,page: true //开启分页
+				,limit:10 //每页显示的条数
+				//,limits:[3,4,5]
+				,groups: 9 //连续页码个数
+				,parseData:function(res){
+					return{
+						"code":res.code,
+						"data":res.data.data,
+						"count":res.data.totalCount,
+						"limit":res.data.pageSize,
+					};
+				}
+				,cols: [
+					[ //表头
+						{
+							field: 'id',
+							title: '序号',
+							fixed: 'left',
+							type: 'numbers',
+							width: 80,
+						}, {
+							field: 'labelName',
+							title: '标签名称',
+						}, {
+							field: 'operation',
+							title: '操作',
+							style: 'color:#1C9399;',
+							fixed: 'right',
+							width: 140,
+							templet: function(res){
+								if (res.editable ==2 ) {
+									return  '<div class="table-list-btn"><span style="color:#ccc">编辑</span>|<span style="color:#ccc">删除</span></div>';
+								}else{
+									return '<div class="table-list-btn"><span onclick="updateLayerOpen(\''+res.labelCode+'\',\''+res.labelName+'\')">编辑</span>|<span  onclick="deleteLabel(\''+res.labelCode+'\')">删除</span></div>';
+								}
+							}
+						}
+					]
+				]
+				,done:function(res, curr, count){
+				    $("#totalNum").text(count);
+				}
+			});
+		});
+	}
+
+	//修改
+	function confirmUpdate(code,name){
+		var labelName = $("#updateLabelName").val();
+		var labelCode = $("#updateLabelCode").val();
+		if (isNull(labelName)) {
+			layer.msg('标签名称不能为空', {time: 2000});
+			return;
+		}else if(labelName.length>20){
+			layer.msg('标签名称过长', {time: 2000});
+			return;
+		}
+
+		var formDate =
+					{
+						labelCode: labelCode,
+						labelName : labelName
+					};
+		$.ajax({
+			url: '../label/updateLabel',
+			type: "post",
+			dataType: "json",
+			data: formDate,
+			async: false,
+			success: function (data) {
+				if (data.code == "200") {
+					layer.closeAll();
+					layer.msg('成功', {icon: 1,time:1500},function(){
+						var parentCode = $("#parentCode").val();
+						getlabelList(parentCode);
+					});
+				} else {
+					layer.msg(data.msg, {icon: 2});
+				}
+			}
+		});
+	}
+
+	//删除
+	function deleteLabel(code){
+		layer.confirm('确定要删除该标签么？', {
+		  btn: ['确定', '取消'] //可以无限个按钮
+		}, function(index, layero){
+		  	confirmDelete(code);
+		}, function(index){
+		  
+		});
+	}
+	//确认删除
+	function confirmDelete(code){
+		var formDate =
+					{
+						labelCode: code,
+					};
+
+		$.ajax({
+			url: '../label/deleteLabel',
+			type: "post",
+			dataType: "json",
+			data: formDate,
+			async: false,
+			success: function (data) {
+				if (data.code == "200") {
+					layer.closeAll();
+					layer.msg('成功', {icon: 1,time:1500},function(){
+						var parentCode = $("#parentCode").val();
+						getlabelList(parentCode);
+						//清空
+						$("#addLabelName").val("");
+					});
+				} else {
+					layer.msg(data.msg, {icon: 2});
+				}
+			}
+		});
+
+	}
+
+	//新增
+	function confirmAdd(){
+		var parentCode = $("#parentCode").val();
+
+		var labelName = $("#addLabelName").val();
+		if (isNull(labelName)) {
+			layer.msg('标签名称不能为空', {time: 2000});
+			return;
+		}else if(labelName.length>20){
+			layer.msg('标签名称过长', {time: 2000});
+			return;
+		}
+
+		var formDate =
+					{
+						parentCode: parentCode,
+						labelName : labelName
+					};
+		$.ajax({
+			url: '../label/saveLabel',
+			type: "post",
+			dataType: "json",
+			data: formDate,
+			async: false,
+			success: function (data) {
+				if (data.code == "200") {
+					layer.closeAll();
+					layer.msg('成功', {icon: 1,time:1500},function(){
+						var parentCode = $("#parentCode").val();
+						getlabelList(parentCode);
+						//清空
+						$("#addLabelName").val("");
+					});
+				} else {
+					layer.msg(data.msg, {icon: 2});
+				}
+			}
+		});
+	}
+
+	//弹层 修改
+	function updateLayerOpen(code,name){
+		layer.open({
+			type: 1,
+			title: false, //不显示标题栏
+			closeBtn: false,
+			area: ['500px', ''],
+			shade: 0.6,
+			id: 'payCons', //设定一个id，防止重复弹出
+			/*,btn: ['确认支付']*/
+			btnAlign: 'c',
+			moveType: 1, //拖拽模式，0或者1
+			shadeClose: true, //设置允许点遮罩关闭
+			content: $("div#pop-con-update"),
+			success: function() {
+				$("#updateLabelName").val(name);
+				$("#updateLabelCode").val(code);
+				//关闭弹层
+				$(".pop-close").click(function() {
+					layer.closeAll();
+				});
+			},
+	
+		});
+	}
+
+	//弹层 添加
+	function addLayerOpen(){
+		layer.open({
+			type: 1,
+			title: false, //不显示标题栏
+			closeBtn: false,
+			area: ['500px', ''],
+			shade: 0.6,
+			id: 'payCons', //设定一个id，防止重复弹出
+			/*,btn: ['确认支付']*/
+			btnAlign: 'c',
+			moveType: 1, //拖拽模式，0或者1
+			shadeClose: true, //设置允许点遮罩关闭
+			content: $("div#pop-con-add"),
+			success: function() {
+				//关闭弹层
+				$(".pop-close").click(function() {
+					layer.closeAll();
+				});
+			},
+	
+		});
+	}	
+
+
+	function isNull(value) {
+		return value == null || value === "" || value === undefined;
+	}
+
+
+</script>
+</body>
+
+</html>

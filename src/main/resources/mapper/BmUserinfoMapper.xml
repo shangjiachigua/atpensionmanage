@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caifu.mapper.BmUserinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.caifu.pojo.BmUserinfo">
+        <id column="id" property="id"/>
+        <result column="userinfo_id" property="userinfoId"/>
+        <result column="total_coupons" property="totalCoupons"/>
+        <result column="used_coupons" property="usedCoupons"/>
+        <result column="unused_coupons" property="unusedCoupons"/>
+        <result column="type" property="type"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <resultMap id="bmUserinfoMap" type="com.caifu.vo.bmfw.BmUserinfoVo">
+        <id column="id" property="id"/>
+        <result column="userinfo_id" property="userinfoId"/>
+        <result column="total_coupons" property="totalCoupons"/>
+        <result column="used_coupons" property="usedCoupons"/>
+        <result column="unused_coupons" property="unusedCoupons"/>
+        <result column="type" property="type"/>
+        <result column="user_name" property="userName"/>
+        <result column="certificate_type" property="certificateType"/>
+        <result column="user_pid" property="userPid"/>
+        <result column="birth_date" property="birthDate"/>
+        <result column="age" property="age"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="nation" property="nation"/>
+        <result column="register_address" property="registerAddress"/>
+        <result column="live_address" property="liveAddress"/>
+        <result column="live_area_of_residence" property="liveAreaOfResidence"/>
+        <result column="register_area_of_residence" property="registerAreaOfResidence"/>
+        <result column="belong_organization" property="belongOrganization"/>
+        <result column="live_status" property="liveStatus"/>
+        <result column="marriage" property="marriage"/>
+        <result column="political" property="political"/>
+        <result column="household_register" property="householdRegister"/>
+        <result column="location" property="location"/>
+        <result column="mobile" property="mobile"/>
+        <result column="tel" property="tel"/>
+        <result column="social_security_type" property="socialSecurityType"/>
+        <result column="social_security_card_no" property="socialSecurityCardNo"/>
+        <result column="retire_salary" property="retireSalary"/>
+        <result column="retire_company" property="retireCompany"/>
+        <result column="retire_time" property="retireTime"/>
+        <result column="occupation" property="occupation"/>
+        <result column="degree_of_education" property="degreeOfEducation"/>
+        <result column="pension_status" property="pensionStatus"/>
+        <result column="care_crowd" property="careCrowd"/>
+        <result column="pension_institutions" property="pensionInstitutions"/>
+        <result column="check_in_time" property="checkInTime"/>
+        <result column="death_date" property="deathDate"/>
+        <result column="death_reason" property="deathReason"/>
+        <result column="live_home_status" property="liveHomeStatus"/>
+        <result column="hold_certificate_status" property="holdCertificateStatus"/>
+        <result column="cognition_status" property="cognitionStatus"/>
+        <result column="foreign_identity_status" property="foreignIdentityStatus"/>
+        <result column="safe_status" property="safeStatus"/>
+        <result column="health_status" property="healthStatus"/>
+        <result column="other_status" property="otherStatus"/>
+        <result column="img_path" property="imgPath"/>
+    </resultMap>
+    <resultMap id="UserInfoMap" type="com.caifu.vo.bmfw.UserinfoVo">
+        <result column="img_path" property="imgPath"/>
+        <result column="age" property="age"/>
+        <result column="user_sex" property="userSex"/>
+        <result column="user_name" property="userName"/>
+        <result column="unused_coupons" property="unusedCoupons"/>
+    </resultMap>
+    <select id="getBmUserinfoList" resultMap="bmUserinfoMap" parameterType="map">
+        SELECT * FROM
+        user_info ui
+        JOIN bm_userinfo bu
+        ON ui.user_no = bu.userinfo_id
+        WHERE ui.`status` = 1 AND bu.`status` = 1
+        <if test="param!=null and param!=''">
+            and (ui.user_name like concat('%',#{param},'%') or ui.age like concat('%',#{param},'%'))
+        </if>
+        <if test="type!=null and type!=''">
+            and bu.type = #{type}
+        </if>
+        order by bu.created_time DESC
+    </select>
+
+    <select id="getUserinfoByUserPid" resultMap="UserInfoMap" parameterType="map">
+        SELECT ui.img_path,ui.age,ui.user_sex,ui.user_name,bu.unused_coupons
+        FROM user_info ui
+        LEFT JOIN bm_userinfo bu
+        ON ui.user_no = bu.userinfo_id
+        WHERE ui.`status` = 1 AND bu.`status` = 1
+        <if test="type!=null and type!=''">
+            and bu.type = #{type}
+        </if>
+        <if test="userPid!=null and userPid!=''">
+            AND ui.user_pid = #{userPid}
+        </if>
+    </select>
+    <select id="selectUserinfoByIdMap" resultMap="bmUserinfoMap" parameterType="map">
+        SELECT * FROM
+        user_info ui
+        JOIN bm_userinfo bu
+        ON ui.user_no = bu.userinfo_id
+        WHERE ui.`status` = 1 AND bu.`status` = 1
+        <if test="type!=null and type!=''">
+            and bu.type = #{type}
+        </if>
+        <if test="id!=null and id!=''">
+            AND bu.userinfo_id = #{id}
+        </if>
+    </select>
+
+</mapper>

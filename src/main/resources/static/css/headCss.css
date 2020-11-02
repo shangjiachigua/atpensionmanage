@@ -1,0 +1,21 @@
+/**     **/
+.layui-layout-admin .layui-header{ background-color:#fff; }
+.layui-header{ height: 80px; }
+.layui-header .layui-logo{ width: auto; line-height: 80px; padding-left: 64px; color: #1C9399; font-size: 24px; letter-spacing: 4px; }
+.layui-header .layui-layout-right{ padding-right: 60px; }
+.layui-header .layui-nav-item{ line-height: 80px; }
+.layui-layout-left .layui-nav-item{  width: 186px; text-align: center; }
+.layui-header .layui-layout-right .layui-nav-item a{ color: #323232; }
+.layui-nav-img{ width: 40px; height: 40px; }
+.layui-nav .icon-quit{ margin-left: 25px; }
+.layui-nav .icon-quit a{ padding:0; }
+.layui-header .layui-nav .layui-nav-more { border-color: #aaa transparent transparent; }
+.layui-header .layui-nav .layui-nav-mored,.layui-header .layui-nav-itemed > a .layui-nav-more {
+    border-color: transparent transparent #aaa;
+}
+.icon-quit img{ vertical-align: -9px; margin-right: 10px; }
+
+
+.layui-header .layui-logo-one{ width: 240px; padding-left: 0; }
+.layui-layout-left-color{ left: 240px; }
+.layui-layout-left-color .layui-nav-item a,.layui-layout-left-color .layui-nav-item a:hover{ color: #666; }

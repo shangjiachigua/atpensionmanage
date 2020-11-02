@@ -1,0 +1,337 @@
+﻿@charset "utf-8";
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+}
+
+button,input[type="button"]{
+	outline:none;
+	appearance:none;
+	-webkit-appearance:none;
+}
+
+select{ background-color:#fff; outline:none}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+  border:medium;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+input[type="text"],input[type="tel"],input[type="password"],input[type="email"],textarea,input[type="submit"]
+{
+	-webkit-appearance:none;
+	appearance:none;
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html,body,ul,li,dl,dd,p,h1,h2,h3,h4,h5,h6,form,input,textarea,table,tbody,tfoot,tr,td,th,select,option,header,article,section,footer,nav,aside,hgroup,summary
+{margin:0;padding:0;/*-webkit-tap-highlight-color:rgba(150,203,255,0);tap-highlight-color:rgba(150,203,255,0);*/}
+*html{_background-image:url(about:blank);_background-attachment:fixed;}
+header,article,section,footer,nav,aside,hgroup,summary{display:block;}
+body{font-family:"Microsoft YaHei",微软雅黑,"Arial Narrow";color:#666}
+input[type="submit"],input[type="button"]{font-family:"Microsoft YaHei",微软雅黑,"Arial Narrow";}
+input,select,textarea {
+    font-size:100%;
+}
+img{border:0}
+a,input,button,area{outline:none}
+a{text-decoration:none;color:#666}
+ul,li{list-style:none}
+/*.clearfix:after{content:"\200b";display: block;height: 0;clear: both;}*/
+/*\200b >Unicode零宽度空格*/
+/*.clearfix{overflow:hidden;zoom:1;}*/
+/*IE/7/6/*/
+.clear{clear:both}
+.left{float:left}
+.right{float:right}
+.block{display:block}
+.relative{position:relative}
+.inline-block{display:inline-block}
+.nowrap-ellipsis{white-space:nowrap;text-overflow:ellipsis;overflow: hidden;}
+.cursor{cursor:pointer}
+em{font-style:normal}
+.overflow{ overflow:hidden}
+.textCenter{text-align:center}
+.textRight{text-align:right}
+.textLeft{text-align:left}
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:500;
+}
+.hidden{display:none}
+/*******padding top*******/
+.pt5px{padding-top:5px;}
+.pt10px{padding-top:10px;}
+.pt15px{padding-top:15px;}
+.pt20px{padding-top:20px;}
+.pt25px{padding-top:25px;}
+.pt30px{padding-top:30px;}
+.pt35px{padding-top:35px;}
+.pt40px{padding-top:40px;}
+.pt45px{padding-top:45px;}
+.pt50px{padding-top:50px;}
+.pt55px{padding-top:55px;}
+.pt60px{padding-top:60px;}
+.pt70px{padding-top:70px}
+.pt240{padding-top:240px}
+
+/*******padding bottom******/
+.pb5px{padding-bottom:5px;}
+.pb10px{padding-bottom:10px;}
+.pb15px{padding-bottom:15px;}
+.pb20px{padding-bottom:20px;}
+.pb25px{padding-bottom:25px;}
+.pb30px{padding-bottom:30px;}
+.pb35px{padding-bottom:35px;}
+.pb40px{padding-bottom:40px;}
+.pb45px{padding-bottom:45px;}
+.pb50px{padding-bottom:50px;}
+.pb55px{padding-bottom:55px;}
+.pb60px{padding-bottom:60px;}
+
+/*******padding left******/
+.pl5px{padding-left:5px;}
+.pl10px{padding-left:10px;}
+.pl15px{padding-left:15px;}
+.pl20px{padding-left:20px;}
+.pl25px{padding-left:25px;}
+.pl30px{padding-left:30px;}
+.pl35px{padding-left:35px;}
+.pl40px{padding-left:40px;}
+.pl45px{padding-left:45px;}
+.pl50px{padding-left:50px;}
+.pl55px{padding-left:55px;}
+.pl60px{padding-left:60px;}
+.pl62px{padding-left:62px;}
+.pl150px{padding-left:300px}
+/*******padding right******/
+.pr5px{padding-right:5px;}
+.pr10px{padding-right:10px;}
+.pr15px{padding-right:15px;}
+.pr20px{padding-right:20px;}
+.pr25px{padding-right:25px;}
+.pr30px{padding-right:30px;}
+.pr35px{padding-right:35px;}
+.pr40px{padding-right:40px;}
+.pr45px{padding-right:45px;}
+.pr50px{padding-right:50px;}
+.pr55px{padding-right:55px;}
+.pr60px{padding-right:60px;}
+
+/*******padding******/
+.pad20{padding:20px}
+.pad30{padding:30px}
+.padtb20{padding:20px 0}
+.pad60{padding:60px}
+.mar20{margin:20px}
+.martb30{margin:30px 0}
+
+
+/*******margin top******/
+.mt5px{margin-top:5px;}
+.mt10px{margin-top:10px;}
+.mt15px{margin-top:15px;}
+.mt20px{margin-top:20px;}
+.mt25px{margin-top:25px;}
+.mt30px{margin-top:30px;}
+.mt35px{margin-top:35px;}
+.mt40px{margin-top:40px;}
+.mt45px{margin-top:45px;}
+.mt50px{margin-top:50px;}
+.mt55px{margin-top:55px;}
+.mt60px{margin-top:60px;}
+.mt130{margin-top:130px}
+.mt155px{margin-top:155px}
+
+/*******margin bottom******/
+.mb5px{margin-bottom:5px;}
+.mb10px{margin-bottom:10px;}
+.mb15px{margin-bottom:15px;}
+.mb20px{margin-bottom:20px;}
+.mb25px{margin-bottom:25px;}
+.mb30px{margin-bottom:30px;}
+.mb35px{margin-bottom:35px;}
+.mb40px{margin-bottom:40px;}
+.mb45px{margin-bottom:45px;}
+.mb50px{margin-bottom:50px;}
+.mb55px{margin-bottom:55px;}
+.mb60px{margin-bottom:60px;}
+
+/*******margin left******/
+.ml5px{margin-left:5px;}
+.ml10px{margin-left:10px;}
+.ml15px{margin-left:15px;}
+.ml20px{margin-left:20px;}
+.ml25px{margin-left:25px;}
+.ml30px{margin-left:30px;}
+.ml35px{margin-left:35px;}
+.ml40px{margin-left:40px;}
+.ml45px{margin-left:45px;}
+.ml50px{margin-left:50px;}
+.ml55px{margin-left:55px;}
+.ml60px{margin-left:60px;}
+
+/*******margin right******/
+.mr5px{margin-right:5px;}
+.mr10px{margin-right:10px;}
+.mr15px{margin-right:15px;}
+.mr20px{margin-right:20px;}
+.mr25px{margin-right:25px;}
+.mr30px{margin-right:30px;}
+.mr35px{margin-right:35px;}
+.mr40px{margin-right:40px;}
+.mr45px{margin-right:45px;}
+.mr50px{margin-right:50px;}
+.mr55px{margin-right:55px;}
+.mr60px{margin-right:60px;}
+
+/*******line height******/
+.lh21px{line-height:21px;}
+.lh23px{line-height:23px;}
+.lh25px{line-height:25px;}
+.lh30px{line-height:30px;}
+.lh35px{line-height:35px;}
+.lh40px{line-height:40px;}
+.lh45px{line-height:45px;}
+.lh50px{line-height:50px;}
+.lh55px{line-height:55px;}
+.lh60px{line-height:60px;}
+.lh80{line-height:80px}
+
+/*******font size******/
+.f12px{font-size:12px !important;}
+.f14px{font-size:14px !important;}
+.f16px{font-size:15px !important;}
+.f18px{font-size:18px !important;}
+.f20px{font-size:20px !important;}
+.f22px{font-size:22px !important;}
+.f24px{font-size:24px !important;}
+.f26px{font-size:26px !important;}
+.f30px{font-size:30px !important;}
+.f46px{font-size:46px !important;}
+.fb{font-weight:900}
+/*********border-radius********/
+.border-radius2{border-radius:1px;}
+.border-radius2{border-radius:2px;}
+.border-radius3{border-radius:3px;}
+.border-radius3{border-radius:4px;}
+.border-radius5{border-radius:5px;}
+
+/****** box-shadow *******/
+.shadow{box-shadow:0 0 1px #999}
+
+/****** color *******/
+.white{color:#fff}
+.red{color:#D95350} 
+.blue{color:#4DC1E6}
+.orange{color:#EC6941}
+/****** backgroundColor *******/
+.bgLightRed{background-color:#F499B8}
+.bgBlue{background-color:#9AC2FF}
+.bgWhite{background-color:#fff}
+.bgGreen{background-color:#D5EB99;}
+.bgLightGray{background-color:#e7e7eb}
+.bgLightGray2{background-color:#f5f5f9;}
+.bgF4{background-color:#f4f4f4}
+.bgBlack{background-color:#2D3032}
+.indent{text-indent:2em}

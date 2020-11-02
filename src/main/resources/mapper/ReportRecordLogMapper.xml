@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caifu.mapper.ReportRecordLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.caifu.pojo.ReportRecordLog">
+        <id column="id" property="id" />
+        <result column="report_record_id" property="reportRecordId" />
+        <result column="state" property="state" />
+        <result column="user_name" property="userName" />
+        <result column="certificate_type" property="certificateType" />
+        <result column="user_pid" property="userPid" />
+        <result column="birth_date" property="birthDate" />
+        <result column="user_sex" property="userSex" />
+        <result column="nation" property="nation" />
+        <result column="register_address" property="registerAddress" />
+        <result column="live_address" property="liveAddress" />
+        <result column="marriage" property="marriage" />
+        <result column="political" property="political" />
+        <result column="household_register" property="householdRegister" />
+        <result column="location" property="location" />
+        <result column="mobile" property="mobile" />
+        <result column="tel" property="tel" />
+        <result column="social_security_type" property="socialSecurityType" />
+        <result column="retire_salary" property="retireSalary" />
+        <result column="retire_company" property="retireCompany" />
+        <result column="retire_time" property="retireTime" />
+        <result column="occupation" property="occupation" />
+        <result column="degree_of_education" property="degreeOfEducation" />
+        <result column="social_security_card_no" property="socialSecurityCardNo" />
+        <result column="pension_status" property="pensionStatus" />
+        <result column="live_home_status" property="liveHomeStatus" />
+        <result column="care_crowd" property="careCrowd" />
+        <result column="pension_institutions" property="pensionInstitutions" />
+        <result column="check_in_time" property="checkInTime" />
+        <result column="health_description" property="healthDescription" />
+        <result column="one_contract_name" property="oneContractName" />
+        <result column="one_relationship" property="oneRelationship" />
+        <result column="one_tel" property="oneTel" />
+        <result column="one_address" property="oneAddress" />
+        <result column="one_mobile" property="oneMobile" />
+        <result column="two_cntract_name" property="twoCntractName" />
+        <result column="two_relationship" property="twoRelationship" />
+        <result column="two_tel" property="twoTel" />
+        <result column="two_address" property="twoAddress" />
+        <result column="two_mobile" property="twoMobile" />
+        <result column="three_contract_name" property="threeContractName" />
+        <result column="three_relationship" property="threeRelationship" />
+        <result column="three_tel" property="threeTel" />
+        <result column="three_address" property="threeAddress" />
+        <result column="three_mobile" property="threeMobile" />
+        <result column="four_contract_name" property="fourContractName" />
+        <result column="four_relationship" property="fourRelationship" />
+        <result column="four_tel" property="fourTel" />
+        <result column="four_address" property="fourAddress" />
+        <result column="four_mobile" property="fourMobile" />
+        <result column="sort" property="sort" />
+        <result column="error_message" property="errorMessage" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+</mapper>

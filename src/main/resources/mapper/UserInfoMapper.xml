@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caifu.mapper.UserInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.caifu.pojo.UserInfo">
+        <id column="user_no" property="userNo" />
+        <result column="user_name" property="userName" />
+        <result column="certificate_type" property="certificateType" />
+        <result column="user_pid" property="userPid" />
+        <result column="birth_date" property="birthDate" />
+        <result column="age" property="age" />
+        <result column="user_sex" property="userSex" />
+        <result column="nation" property="nation" />
+        <result column="register_address" property="registerAddress" />
+        <result column="live_address" property="liveAddress" />
+        <result column="live_area_of_residence" property="liveAreaOfResidence" />
+        <result column="register_area_of_residence" property="registerAreaOfResidence" />
+        <result column="belong_organization" property="belongOrganization" />
+        <result column="live_status" property="liveStatus" />
+        <result column="marriage" property="marriage" />
+        <result column="political" property="political" />
+        <result column="household_register" property="householdRegister" />
+        <result column="location" property="location" />
+        <result column="mobile" property="mobile" />
+        <result column="tel" property="tel" />
+        <result column="social_security_type" property="socialSecurityType" />
+        <result column="social_security_card_no" property="socialSecurityCardNo" />
+        <result column="retire_salary" property="retireSalary" />
+        <result column="retire_company" property="retireCompany" />
+        <result column="retire_time" property="retireTime" />
+        <result column="occupation" property="occupation" />
+        <result column="degree_of_education" property="degreeOfEducation" />
+        <result column="pension_status" property="pensionStatus" />
+        <result column="care_crowd" property="careCrowd" />
+        <result column="pension_institutions" property="pensionInstitutions" />
+        <result column="check_in_time" property="checkInTime" />
+        <result column="health_description" property="healthDescription" />
+        <result column="death_date" property="deathDate" />
+        <result column="death_reason" property="deathReason" />
+        <result column="live_home_status" property="liveHomeStatus" />
+        <result column="hold_certificate_status" property="holdCertificateStatus" />
+        <result column="cognition_status" property="cognitionStatus" />
+        <result column="foreign_identity_status" property="foreignIdentityStatus" />
+        <result column="safe_status" property="safeStatus" />
+        <result column="health_status" property="healthStatus" />
+        <result column="other_status" property="otherStatus" />
+        <result column="img_path" property="imgPath" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,8 @@
+
+.layui-footer-one{ position: absolute; bottom: 0; left: 0; right: 0; z-index: 999; height: 90px; background-color: #fff; box-shadow: 0px -6px 17px -5px rgba(17, 15, 61, 0.08); }
+.layui-footer .btn-con{ margin:25px 0 }
+.btn-con span{ display: inline-block; height: 40px; line-height: 40px; border-radius: 4px; margin: 0 20px; padding: 0 25px; box-sizing: border-box; }
+.btn-con .btn-one{ background-color: #fafafa; border:1px solid #ddd; color:#666 }
+.btn-con .btn-two{ background-color: #1C9399; color: #fff; }	
+.btn-con .btn-three{ border:1px solid #1C9399; color: #1C9399; }	
+.btn-con .btn-four{ border:1px solid #FA675C; color: #FA675C; }

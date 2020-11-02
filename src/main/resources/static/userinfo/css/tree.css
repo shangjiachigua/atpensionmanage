@@ -1,0 +1,13 @@
+.tree-con-box{ height: 100%; overflow: hidden; }
+.tree-con-box .tree-one{ height: 100%; padding:10px 0; margin-right: -20px; overflow: hidden; overflow-y: scroll; }
+
+.tree-children{ position: relative; display: flex; line-height: 40px; cursor: pointer; }
+.tree-children div:nth-child(1){ overflow: hidden; flex:1.5 }
+.tree-children div:nth-child(1) p{ float: left; }
+.tree-children div:nth-child(1) p img{ display: block; margin:16px 10px 15px 0 }
+.tree-one div.tree-children div.current{ background-color: rgba(28, 147, 153, 0.1); color: #1C9399; }
+.tree-one li div.tree-children div:nth-child(1) p:nth-child(1){ padding-left: 20px; }
+.tree-two li div.tree-children div:nth-child(1) p:nth-child(1){ padding-left: 40px; }
+.tree-three li div.tree-children div:nth-child(1) p:nth-child(1){ padding-left: 60px; }
+.tree-four li div.tree-children div:nth-child(1) p:nth-child(1){ padding-left: 80px; }
+.tree-five li div.tree-children div:nth-child(1) p:nth-child(1){ padding-left: 100px; }

@@ -1,0 +1,23 @@
+.pop-up{ padding: 15px 30px }
+.pop-title::before{ 
+	content: '';
+	display: block;
+	width: 4px;
+	height: 25px;
+	background-color: #1C9399;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.btn-con span{ display: inline-block; padding: 0 25px; height: 40px; line-height: 40px; border-radius: 4px; margin: 0 20px; box-sizing: border-box; }
+.btn-con .btn-one{ background-color: #fafafa; border:1px solid #ddd; color:#666 }
+.btn-con .btn-two{ background-color: #1C9399; color: #fff; }	
+.btn-bgRed{ background-color: #FA675C; color: #fff }
+
+
+
+/* 公开弹窗 */
+.add-mess-form-border p{ border: 1px solid #ddd; border-radius: 4px; padding: 0 10px;  width: 300px; box-sizing: border-box; }
+.add-mess-form-border span{ position: absolute; right: 0; top: 0; width: 50px; height: 33px; text-align: center; border-left: 1px solid #ddd; }
+.add-mess-form-border span img{ width: 20px; }
+.add-mess-pos{ position: absolute; right: 0; top: 10px; }

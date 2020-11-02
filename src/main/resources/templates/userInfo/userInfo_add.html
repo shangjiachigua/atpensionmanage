@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../css/thesame.css" media="all">
+	<link rel="stylesheet" href="../css/headCss.css" media="all">
+	<link rel="stylesheet" href="../css/leftSidebar.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/rightCon.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/tree.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/page.css" media="all">
+	<link rel="stylesheet" href="../css/footer.css" media="all">
+</head>
+
+<body class="layui-layout-body">
+<div class="layui-body">
+	<!-- 内容主体区域 -->
+	<div class="add-title pad25px">
+		<span class="mr10px" onclick="back()">
+			<img src="../userInfo/img/return_icon.png">
+		</span>
+		<span>新建档案</span>
+	</div>
+	<div class="new-add-box bgWhite box-shadows border-radius4">
+		<div class="new-add-box-scroll">
+			<div class="mb25px">
+				<div class="new-add-title relative overflow mb15px"><span class="ml15px">基本信息</span></div>
+				<div class="new-add-con new-add-form pb25px border-bot1px">
+					<article class="new-add-left new-add-form-con">
+						<ul class="overflow">
+							<li>
+								<p><label><em class="red">*</em>姓名：</label></p>
+								<p><input type="text" id="userName" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>性别：</label></p> 
+								<p>
+									<select id="userSex" class="form-select">
+										<option value="">请选择</option>
+										<option value="1">男</option>
+										<option value="2">女</option>
+									</select>
+								</p>
+							</li>  
+							<li>
+								<p><label><em class="red">*</em>出生日期：</label></p>
+								<p><input type="text" id="birthDate" placeholder="年-月-日" class="layui-input layui-time test-item"></p>
+							</li>
+							<li>
+								<p><label><em class="red">*</em>证件类型：</label></p>
+								<p>
+									<select id="certificateType" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${certificateList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label><em class="red">*</em>证件编号：</label></p>
+								<p><input type="text" id="userPid" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label><em class="red">*</em>户籍：</label></p>
+								<p>
+									<select id="householdRegister" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${householdRegisterList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label>民族：</label></p>
+								<p>
+									<select id="nation" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${nationList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label>婚姻状况：</label></p>
+								<p>
+									<select id="marriage" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${marriageList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label><em class="red">*</em>所在地区：</label></p>
+								<p>
+									<select id="location" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${locationList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li class="width-two"> 
+								<p><label><em class="red">*</em>户籍地址：</label></p>
+								<p><input type="text" id="registerAddress" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>户籍行政区：</label></p>
+								<p>
+									<select id="registerAreaOfResidence" class="form-select">
+										<option value="测试">暂时没有</option>
+										<option value="测试">暂时没有</option>
+									</select>
+								</p>
+							</li>
+							<li class="width-two">
+								<p><label><em class="red">*</em>居住地址：</label></p>
+								<p><input type="text" id="liveAddress" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>居住行政区：</label></p>
+								<p>
+									<select id="liveAreaOfResidence" class="form-select">
+										<option value="测试">暂时没有</option>
+										<option value="测试">暂时没有</option>
+									</select>
+								</p>
+							</li>
+							<li>
+								<p><label>社保类型：</label></p>
+								<p>
+									<select id="socialSecurityType" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${socialSecurityList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label>社保卡号：</label></p>
+								<p><input type="text" id="socialSecurityCardNo" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>手机号码：</label></p>
+								<p><input type="text" id="mobile" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>固定号码：</label></p>
+								<p><input type="text" id="tel" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>文化程度：</label></p>
+								<p>
+									<select id="degreeOfEducation" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${educationList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label>政治面貌：</label></p>
+								<p>
+									<select id="political" class="form-select">
+			                            <option value="">请选择</option>
+			                            <option th:each="list:${politicalList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li> 
+							<li> 
+								<p><label>退休单位：</label></p>
+								<p><input type="text" id="retireCompany" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>退休工资：</label></p>
+								<p style="padding-right:80px">
+									<input type="number" id="retireSalary" placeholder="请输入" class="layui-input">
+									<span style="line-height: 32px; position: absolute; right: 40px; top: 0;">元/月</span>
+								</p>
+							</li>
+							<li>
+								<p><label>职业：</label></p>
+								<p><input type="text" id="occupation" placeholder="请输入" class="layui-input"></p>
+							</li>
+							<li>
+								<p><label>退休时间：</label></p>
+								<p><input type="text" id="retireTime" placeholder="年-月-日" class="layui-input layui-time test-item2"></p>
+							</li>
+						</ul>
+					</article>
+					<article class="new-add-right">
+						<dl class="inline-block relative">
+							<dt>
+								<p class="filejs"><img src="img/moren.png" id="imgPath" class="bock"></p>
+								<input type="file" id="file_input" class="hidden file" />
+							</dt>
+							<dd class="white lh30px textCenter">默认头像</dd>
+						</dl>
+					</article>
+				</div>
+			</div>
+			<div class="mb25px">
+				<div class="new-add-title relative overflow mb15px"><span class="ml15px">主要联系人</span></div>
+				<div class="pb20px border-bot1px">
+					<!-- <div class="mt25px mb15px lh32px overflow add-btn-input">
+						<p class="left cursor">
+							<span class="white border-radius4 bgGreen inline-block pl15px pr15px"><img src="img/button_add.png">添加</span>
+						</p>
+					</div> -->
+					<div class="border1px border-radius4">
+						<table class="layui-table layui-table-header">
+							<thead>
+								<tr>
+									<th>行号</th>
+									<th><span class="red">*</span>姓名</th>
+									<th><span class="red">*</span>与本人关系</th>
+									<th>固定电话</th>
+									<th>详细地址</th>
+									<th>手机号码</th>
+									<th>紧急联系人</th>
+									<!-- <th>操作</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td> 
+									<td><input type="text" id="contactName1" placeholder="请输入姓名" class="layui-input"></td>
+									<td>
+										<p>
+											<select id="relationship1" class="form-select">
+					                            <option value="">请选择</option>
+					                            <option th:each="list:${relationshipList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+					                        </select>
+										</p>
+									</td>
+									<td><input type="text" id="tel1" placeholder="请输入固定电话" class="layui-input"></td>
+									<td><input type="text" id="address1" placeholder="请输入详细地址" class="layui-input"></td>
+									<td><input type="text" id="mobile1" placeholder="请输入手机号" class="layui-input"></td>
+									<td class="layui-form"><input type="checkbox" id="isEmergencyContact1" lay-skin="primary"></td>
+									<!-- <td><span class="green">删除</span></td> -->
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><input type="text" id="contactName2" placeholder="请输入姓名" class="layui-input"></td>
+									<td>
+										<p>
+											<select id="relationship2" class="form-select">
+					                            <option value="">请选择</option>
+					                            <option th:each="list:${relationshipList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+					                        </select>
+										</p>
+									</td>
+									<td><input type="text" id="tel2" placeholder="请输入固定电话" class="layui-input"></td>
+									<td><input type="text" id="address2" placeholder="请输入详细地址" class="layui-input"></td>
+									<td><input type="text" id="mobile2" placeholder="请输入手机号" class="layui-input"></td>
+									<td class="layui-form"><input type="checkbox" id="isEmergencyContact2" lay-skin="primary"></td>
+									<!-- <td><span class="green">删除</span></td> -->
+								</tr>
+
+								<tr>
+									<td>3</td>
+									<td><input type="text" id="contactName3" placeholder="请输入姓名" class="layui-input"></td>
+									<td>
+										<p>
+											<select id="relationship3" class="form-select">
+					                            <option value="">请选择</option>
+					                            <option th:each="list:${relationshipList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+					                        </select>
+										</p>
+									</td>
+									<td><input type="text" id="tel3" placeholder="请输入固定电话" class="layui-input"></td>
+									<td><input type="text" id="address3" placeholder="请输入详细地址" class="layui-input"></td>
+									<td><input type="text" id="mobile3" placeholder="请输入手机号" class="layui-input"></td>
+									<td class="layui-form"><input type="checkbox" id="isEmergencyContact3" lay-skin="primary"></td>
+									<!-- <td><span class="green">删除</span></td> -->
+								</tr>
+
+								<tr>
+									<td>4</td>
+									<td><input type="text" id="contactName4" placeholder="请输入姓名" class="layui-input"></td>
+									<td>
+										<p>
+											<select id="relationship4" class="form-select">
+					                            <option value="">请选择</option>
+					                            <option th:each="list:${relationshipList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+					                        </select>
+										</p>
+									</td>
+									<td><input type="text" id="tel4" placeholder="请输入固定电话" class="layui-input"></td>
+									<td><input type="text" id="address4" placeholder="请输入详细地址" class="layui-input"></td>
+									<td><input type="text" id="mobile4" placeholder="请输入手机号" class="layui-input"></td>
+									<td class="layui-form"><input type="checkbox" id="isEmergencyContact4" lay-skin="primary"></td>
+									<!-- <td><span class="green">删除</span></td> -->
+								</tr>
+								
+							</tbody>
+						</table>
+						<!-- <div class="textCenter pt25px pb25px">暂无数据</div> -->
+					</div>
+				</div>
+			</div>
+			<div class="mb25px">
+				<div class="new-add-title relative overflow mb15px"><span class="ml15px">健康状况</span></div>
+				<ul class="overflow new-add-textarea pb25px border-bot1px">
+					<li class="relative">
+						<p><label>健康状况既往疾病史：</label></p>
+						<p>
+							<textarea class="layui-textarea resize" placeholder="请输入300字以内重大疾病的名称,可以输入多个疾病" id="healthDescription" cols="30" rows="10"></textarea>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<div class="mb25px">
+				<div class="new-add-title relative overflow mb15px"><span class="ml15px">服务类型</span></div>
+				<div class="new-add-con pb25px border-bot1px">
+					<article class="new-add-left new-add-left-two">
+						<ul class="overflow">
+							<li>
+								<p><label><em class="red">*</em>目前养老状况：</label></p>
+								<p> 
+									<select id="pensionStatus" class="form-select">
+										<option value="">请选择</option>
+			                            <option th:each="list:${pensionStatusList}" th:value="${list.labelCode}"  th:text="${list.labelName}"></option>
+			                        </select>
+								</p>
+							</li>
+							<li>
+								<p><label>所属养老机构：</label></p>
+								<p>
+									<select id="pensionInstitutions" class="form-select">
+										<option value="测试">暂时没有</option>
+										<option value="测试">暂时没有</option>
+									</select>
+								</p>
+							</li>
+							<li>
+								<p><label>入驻日期：</label></p>
+								<p><input type="text" id="checkInTime" placeholder="年-月-日" class="layui-input layui-time test-item3"></p>
+							</li>
+							<li class="width-three layui-form">
+								<p><label>照顾人群：</label></p>
+								<p style="margin-top: 5px;">
+									<span th:each="list:${careCrowdList}">
+										<input type="checkbox" name="careCrowd"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+									</span>
+
+									<!-- <span><input type="checkbox" name="" lay-skin="primary" title="退伍军人"></span>
+									<span><input type="checkbox" name="" lay-skin="primary" title="低保"></span> -->
+								</p>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+			<div class="mb25px">
+				<div class="new-add-title relative overflow mb15px"><span class="ml15px">其他标签</span></div>
+				<div class="pb25px border-bot1px">
+					<ul class="layui-form layui-form-color">
+						<li class="overflow mb10px">
+							<p class="left"><label>居家情况：</label></p>
+							<p class="left">
+								<span th:each="list:${liveHomeStatusList}">
+									<input type="checkbox" name="liveHomeStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+								<!-- <span><input type="checkbox" name="" lay-skin="primary" title="残疾人"></span> -->
+							</p>
+						</li>
+						<li class="overflow mb10px"> 
+							<p class="left"><label>持证情况：</label></p>
+							<p class="left">
+								<span th:each="list:${holdCertificateStatusList}">
+									<input type="checkbox" name="holdCertificateStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+								<!-- <span><input type="radio" name="holdCertificateStatus" lay-skin="primary" title="失独"></span>
+								<span><input type="radio" name="1" lay-skin="primary" title="失独"></span> -->
+							</p>
+						</li>
+						<li class="overflow mb10px">
+							<p class="left"><label>认知情况：</label></p>
+							<p class="left">
+								<span th:each="list:${cognitionStatusList}">
+									<input type="radio" name="cognitionStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+							</p>
+						</li>
+						<li class="overflow mb10px">
+							<p class="left"><label>涉外情况：</label></p>
+							<p class="left">
+								<span th:each="list:${foreignIdentityStatusList}">
+									<input type="checkbox" name="foreignIdentityStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+							</p>
+						</li>
+						<li class="overflow mb10px">
+							<p class="left"><label>安全情况：</label></p>
+							<p class="left">
+								<span th:each="list:${safeStatusList}">
+									<input type="checkbox" name="safeStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+							</p>
+						</li>
+						<li class="overflow mb10px">
+							<p class="left"><label>健康情况：</label></p>
+							<p class="left">
+								<span th:each="list:${healthStatusList}">
+									<input type="checkbox" name="healthStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+							</p>
+						</li>
+						<li class="overflow mb10px">
+							<p class="left"><label>其他情况：</label></p>
+							<p class="left">
+								<span th:each="list:${otherStatusList}">
+									<input type="checkbox" name="otherStatus"  th:value="${list.labelCode}"  lay-skin="primary" th:title="${list.labelName}">
+								</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-footer layui-footer-one">
+		<div class="btn-con textCenter">
+			<span class="btn-one" onclick="back()">取&nbsp;消</span>
+			<span class="btn-two" onclick="confirmAdd()">提&nbsp;交</span>
+		</div>
+	</div>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../userinfo/js/treeTwo.js"></script>
+<script>
+
+	$(function(){
+		//左侧菜单栏
+		layui.use(['element','table','layer', 'laydate'], function() {
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '.test-item',
+				trigger: 'click',
+				format: 'yyyy年MM月dd日', 
+			});
+			laydate.render({
+				elem: '.test-item2',
+				trigger: 'click',
+				format: 'yyyy年MM月dd日', 
+			});
+			laydate.render({
+				elem: '.test-item3',
+				trigger: 'click',
+				format: 'yyyy年MM月dd日', 
+			});
+		});
+
+		$(".filejs").click(function() {
+			$(".file").click();
+		})
+
+		//上传图片
+		document.getElementById("file_input").addEventListener('change', readFile, false);
+
+	})
+
+	function readFile() {
+		var input = document.getElementById("file_input");
+		var dataArr = []; // 储存所选图片的结果(文件名和base64数据)
+
+        var fd = new FormData();
+        var iLen = this.files.length;
+        var index = 0;
+        for (var i = 0; i < iLen; i++) {
+            if (!input['value'].match(/.jpg|.gif|.png|.jpeg|.bmp/i)) {　　//判断上传文件格式
+            	layer.msg('上传的图片格式不正确，请重新选择', {time: 3000});
+     //        	layer.open({
+			 	// 	content: '上传的图片格式不正确，请重新选择'
+			 	// 	,skin: 'msg'
+			 	// 	,time: 2 //2秒后自动关闭
+			 	// });
+                return ;
+            }
+            var reader = new FileReader();
+            reader.index = i;
+            //fd.append(i,this.files[i]);
+            fd.append("file", this.files[i]);
+            sendImage(fd);//传送图片
+            reader.readAsDataURL(this.files[i]);  //转成base64
+            reader.fileName = this.files[i].name;
+			//var imageName2= 
+			
+			//console.log("====="+imageName2);
+            reader.onload = function (e) {
+                var imgMsg = {
+                    name: this.fileName,//获取文件名
+                    base64: this.result   //reader.readAsDataURL方法执行完后，base64数据储存在reader.result里
+                }
+                dataArr.push(imgMsg);
+                $('#imgPath').attr('src', imgMsg.base64); //图片链接（base64）
+            }
+
+            
+        }
+    }
+
+    function sendImage(fd) {
+        $.ajax({
+            url: '../img/uploadImage',
+            type: 'post',
+            data: fd,//JSON.stringify(submitArr),
+            dataType: 'json',
+            cache: false,
+            processData: false,   //用FormData传fd时需有这两项     必要
+            contentType: false,    //必要
+            async: true,
+            beforeSend:function(){
+            	layer.load(2);
+            },
+            success: function (res) {
+            	layer.closeAll();
+                if (res.code == "0000") {
+                	$('#imgPath').attr('value', res.msg); //图片链接（base64）
+                	//$('#imgPath').attr('src', res.msg); //图片链接（base64）
+                }else{
+                	return layer.msg("图片上传失败，请重试", {time: 2000});
+                }
+            }
+        });
+    }
+
+	function back(){
+		 window.history.back();
+	}
+
+	function confirmAdd(){
+		var userName = $("#userName").val();//姓名
+		var userSex = $("#userSex").val();//性别
+		var birthDate = $("#birthDate").val();//出生日期
+		var certificateType = $("#certificateType").val();//证件类型
+		var userPid = $("#userPid").val();//证件号
+		var householdRegister = $("#householdRegister").val();//户籍
+		var nation = $("#nation").val();//民族
+		var marriage = $("#marriage").val();//婚姻状况
+		var location = $("#location").val();//所在地区
+		var registerAddress = $("#registerAddress").val();//户籍地址
+		var registerAreaOfResidence = $("#registerAreaOfResidence").val();//户籍所在行政区域
+		var liveAddress = $("#liveAddress").val();//居住地址
+		var liveAreaOfResidence = $("#liveAreaOfResidence").val();//居住所在行政区域
+		var socialSecurityType = $("#socialSecurityType").val();//社保类型
+		var socialSecurityCardNo = $("#socialSecurityCardNo").val();//社保卡号
+		var mobile = $("#mobile").val();//手机号
+		var tel = $("#tel").val();//固定电话
+		var degreeOfEducation = $("#degreeOfEducation").val();//文化程度
+		var political = $("#political").val();//政治面貌
+		var retireCompany = $("#retireCompany").val();//退休单位
+		var retireSalary = $("#retireSalary").val();//退休工资
+		var occupation = $("#occupation").val();//职业
+		var retireTime = $("#retireTime").val();//退休时间
+		var healthDescription = $("#healthDescription").val();//健康描述
+		var pensionStatus = $("#pensionStatus").val();//养老状况
+		var pensionInstitutions = $("#pensionInstitutions").val();//养老机构 
+		var checkInTime = $("#checkInTime").val();//入驻时间
+		var careCrowd = getCheckBoxValue("careCrowd");//照顾人群
+		//标签情况
+		var liveHomeStatus = getCheckBoxValue("liveHomeStatus");//居家情况
+		var holdCertificateStatus = getCheckBoxValue("holdCertificateStatus");//持证情况
+		var cognitionStatus =$("input:radio[name='cognitionStatus']:checked").val();//认知情况
+		var foreignIdentityStatus = getCheckBoxValue("foreignIdentityStatus");//涉外情况
+		var safeStatus = getCheckBoxValue("safeStatus");//安全情况
+		var healthStatus = getCheckBoxValue("healthStatus");//健康情况
+		var otherStatus = getCheckBoxValue("otherStatus");//其他情况
+		//头像图片
+		var imgPath = $("#imgPath").attr("value");
+		
+
+		if (isNull(userName)) {
+			layer.msg('姓名不能为空', {time: 2000});
+			return;
+
+		}else{
+			if (userName.length>20) {
+				layer.msg('姓名输入过长', {time: 2000});
+				return;
+			}
+		}
+		if (isNull(birthDate)) {
+			layer.msg('出生日期不能为空', {time: 2000});
+			return;
+
+		}
+		if (isNull(certificateType)) {
+			layer.msg('证件类型不能为空', {time: 2000});
+			return;
+		}
+		if (isNull(userPid)) {
+			layer.msg('证件编号不能为空', {time: 2000});
+			return;
+		}
+
+		if ("大陆身份证" == $('#certificateType option:selected').text()) {
+			if (!checkUserPid(userPid)) {
+				layer.msg('身份证逻辑校验出错', {time: 2000});
+				return;
+			}
+			if (!(userSex!=getSexByUserPid(userPid))) {
+				layer.msg('您的性别和身份证不一致', {time: 2000});
+				return;
+			}
+
+			var birth = formateBirthDate(birthDate);
+			if (birth!=getBirthdayByUserPid(userPid)) {
+				layer.msg('您的出生日期和身份证不一致', {time: 2000});
+				return;
+			}
+		}
+
+
+		//如果户籍类型选择外地或外国的时候，户籍所在地只能选择其他，不能选择嘉定（镇内）、嘉定（镇外）这两个选项。
+		if (isNull(householdRegister)) {
+			layer.msg('请选择户籍', {time: 2000});
+			return;
+		}else{
+			if (!isNull(location)) {
+				if ("外地" == $('#householdRegister option:selected').text() || "外国" == $('#householdRegister option:selected').text() ) {
+					if ($('#location option:selected').text() !="其他") {
+						layer.msg('户籍为外地或外国的时候，所在地区只能选择 其他', {time: 2000});
+						return;
+					}
+				}
+			}
+		}
+
+
+		if (isNull(location)) {
+			layer.msg('所在地区不能为空', {time: 2000});
+			return;
+		}
+
+		if (isNull(registerAddress)) {
+			layer.msg('户籍地址不能为空', {time: 2000});
+			return;
+		}else{
+			if (registerAddress.length>100) {
+				layer.msg('户籍地址过长', {time: 2000});
+				return;
+			}
+		}
+
+		if (isNull(liveAddress)) {
+			layer.msg('居住地址不能为空', {time: 2000});
+			return;
+		}else{
+			if (liveAddress.length>100) {
+				layer.msg('居住地址过长', {time: 2000});
+				return;
+			}
+		}
+
+		//户籍行政区域 he 居住行政区域 2个必选一个
+		if (isNull(registerAreaOfResidence) && isNull(liveAreaOfResidence) ) {
+			layer.msg('户籍行政区域和居住行政区域必须要选择一个', {time: 2000});
+			return;
+		}
+		// if (isNull(liveAreaOfResidence)) {
+		// 	layer.msg('请选择居住行政区域', {time: 2000});
+		// 	return;
+		// }
+
+		if (!isNull(mobile)) {
+			if (!isPhoneNumber(mobile)) {
+				layer.msg('手机号输入错误', {time: 2000});
+				return;
+			}
+		}
+
+		if (!isNull(tel)) {
+			if (!checkTel(tel)) {
+				layer.msg('固定电话输入错误', {time: 2000});
+				return;
+			}
+		}
+		if (!isNull(healthDescription)) {
+			if (liveAddress.length>300) {
+				layer.msg('健康状况描述过长', {time: 2000});
+				return;
+			}
+		}
+
+		//	服务类型板块可以选择居家养老和养老院养老两种不同的养老方式，选择居家养老，则所属养老机构和入住时间为不可编辑状态，
+		//  选择养老院养老，所属养老机构和入住时间为可编辑并且必填状态。
+		if (isNull(pensionStatus)) {
+			layer.msg('请选择养老状况', {time: 2000});
+			return;
+		}
+		if (!isNull(pensionStatus)) {
+			if ($('#pensionStatus option:selected').text()=="养老机构养老") {
+				if (isNull(pensionInstitutions)) {
+					layer.msg('养老状况为养老机构养老,所属养老机构不能为空', {time: 2000});
+					return;
+				}
+				if (isNull(checkInTime)) {
+					layer.msg('养老状况为养老机构养老,入住时间不能为空', {time: 2000});
+					return;
+				}
+			}
+		}
+		if (!isNull(retireCompany)) {
+			if (retireCompany.length>100) {
+				layer.msg('退休单位过长', {time: 2000});
+				return;
+			}
+		}
+		if (!isNull(occupation)) {
+			if (retireCompany.length>50) {
+				layer.msg('职业过长', {time: 2000});
+				return;
+			}
+		}
+		if (!isNull(retireSalary)) {
+			if (!checkSalary(retireSalary) || retireSalary.length>20) {
+				layer.msg('请输入正确的退休工资', {time: 2000});
+				return;
+			}
+		}
+
+
+		//联系人   1号
+		var contactName1 = $("#contactName1").val();//联系人姓名
+		var relationship1 = $("#relationship1").val();//关系
+		var tel1 = $("#tel1").val();//固定电话
+		var address1 = $("#address1").val();//详细地址
+		var mobile1 = $("#mobile1").val();//手机号
+		var isEmergencyContact1 = $("#isEmergencyContact1").is(":checked");//是否是紧急联系人
+		//联系人 2号
+		var contactName2 = $("#contactName2").val();//联系人姓名
+		var relationship2 = $("#relationship2").val();//关系
+		var tel2 = $("#tel2").val();//固定电话
+		var address2 = $("#address2").val();//详细地址
+		var mobile2 = $("#mobile2").val();//手机号
+		var isEmergencyContact2 = $("#isEmergencyContact2").is(":checked");//是否是紧急联系人
+		//联系人 3号
+		var contactName3 = $("#contactName3").val();//联系人姓名
+		var relationship3 = $("#relationship3").val();//关系
+		var tel3 = $("#tel3").val();//固定电话
+		var address3 = $("#address3").val();//详细地址
+		var mobile3 = $("#mobile3").val();//手机号
+		var isEmergencyContact3 = $("#isEmergencyContact3").is(":checked");//是否是紧急联系人
+		//联系人 4号
+		var contactName4 = $("#contactName4").val();//联系人姓名
+		var relationship4 = $("#relationship4").val();//关系
+		var tel4 = $("#tel4").val();//固定电话
+		var address4 = $("#address4").val();//详细地址
+		var mobile4 = $("#mobile4").val();//手机号
+		var isEmergencyContact4 = $("#isEmergencyContact4").is(":checked");//是否是紧急联系人
+
+		var a1 = checkContactPeople("一",contactName1,relationship1,mobile1,tel1,address1,isEmergencyContact1==false?"":isEmergencyContact1);
+		var a2 = checkContactPeople("二",contactName2,relationship2,mobile2,tel2,address2,isEmergencyContact2==false?"":isEmergencyContact2);
+		var a3 = checkContactPeople("三",contactName3,relationship3,mobile3,tel3,address3,isEmergencyContact3==false?"":isEmergencyContact3);
+		var a4 = checkContactPeople("四",contactName4,relationship4,mobile4,tel4,address4,isEmergencyContact4==false?"":isEmergencyContact4);
+		if (!a1 || !a2 || !a3 || !a4 ) {
+			return;
+		}
+
+
+		//获取联系人 list
+		var userInfoContactList = [];
+		if (!isNull(contactName1) && !isNull(relationship1)) {
+			var userInfoContact = getUserInfoContact(contactName1,relationship1,tel1,address1,mobile1,isEmergencyContact1);
+			userInfoContactList.push(userInfoContact);
+		}
+		if (!isNull(contactName2) && !isNull(relationship2)) {
+			var userInfoContact = getUserInfoContact(contactName2,relationship2,tel2,address2,mobile2,isEmergencyContact2);
+			userInfoContactList.push(userInfoContact);
+		}
+		if (!isNull(contactName3) && !isNull(relationship3)) {
+			var userInfoContact = getUserInfoContact(contactName3,relationship3,tel3,address3,mobile3,isEmergencyContact3);
+			userInfoContactList.push(userInfoContact);
+		}
+		if (!isNull(contactName4) && !isNull(relationship4)) {
+			var userInfoContact = getUserInfoContact(contactName4,relationship4,tel4,address4,mobile4,isEmergencyContact4);
+			userInfoContactList.push(userInfoContact);
+		}
+
+		var formDate =
+					{
+						userName: userName,
+						userSex: userSex,
+						birthDate: birthDate,
+						certificateType: certificateType,
+						userPid: userPid,
+						householdRegister: householdRegister,
+						nation: nation,
+						marriage: marriage,
+						location: location,
+						registerAddress: registerAddress,
+						registerAreaOfResidence: registerAreaOfResidence,
+						liveAddress: liveAddress,
+						liveAreaOfResidence: liveAreaOfResidence,
+						socialSecurityType: socialSecurityType,
+						socialSecurityCardNo: socialSecurityCardNo,
+						mobile: mobile,
+						tel: tel,
+						healthDescription:healthDescription,
+						degreeOfEducation: degreeOfEducation,
+						political: political,
+						retireCompany: retireCompany,
+						retireSalary: retireSalary,
+						occupation: occupation,
+						retireTime: retireTime,
+						pensionStatus: pensionStatus,
+						pensionInstitutions: pensionInstitutions,
+						checkInTime: checkInTime,
+						careCrowd: careCrowd,
+						liveHomeStatus: liveHomeStatus,
+						holdCertificateStatus: holdCertificateStatus,
+						cognitionStatus: cognitionStatus,
+						foreignIdentityStatus: foreignIdentityStatus,
+						safeStatus: safeStatus,
+						healthStatus: healthStatus,
+						otherStatus: otherStatus,
+						userInfoContactList:  userInfoContactList,
+						imgPath : imgPath
+					};
+			var url = "../userInfo/saveUserInfo";
+			$.ajax({
+				url: url,
+				type: "post",
+				contentType:"application/json;charset=utf-8",
+				data: JSON.stringify(formDate),
+				success: function (data) {
+					if (data.code == "200") {
+						layer.msg('保存成功', {icon: 1,time:1500});
+					} else {
+						layer.msg(data.msg, {icon: 2});
+					}
+				}
+			});
+	}
+
+
+	
+
+	//获取联系人
+	function getUserInfoContact(contactName,relationship,tel,address,mobile,isEmergencyContact){
+		return {"contactName":contactName,"relationship":relationship,"tel":tel,"address":address,"mobile":mobile,"isEmergencyContact":getEmergencyContact(isEmergencyContact)};
+	}
+
+	//是否是紧急联系人 1-是 2否
+	function getEmergencyContact(isEmergencyContact){
+		if (!isNull(isEmergencyContact)) {
+			if (isEmergencyContact == true) {
+				return 1;
+			}else if (isEmergencyContact == false) {
+				return 2;
+			}
+		}
+		return "";
+	}
+
+	
+	//联系人判断
+	function checkContactPeople(contactNum,name,relationship,mobile,tel,address,isEmergencyContact){
+		if (!isNull(name)) {
+			if (isNull(relationship)) {
+				layer.msg("第"+contactNum+"联系人,"+"请选择与本人关系", {time: 2000});
+				return false;
+			}
+		}
+		if (!isNull(relationship)) {
+			if (isNull(name)) {
+				layer.msg("第"+contactNum+"联系人,"+"请输入姓名", {time: 2000});
+				return false;
+			}
+			
+		}
+		if (!isNull(tel)) {
+			if (!checkTel(tel)) {
+				layer.msg("第"+contactNum+"联系人,"+"固定电话输入错误", {time: 2000});
+				return false;
+			}
+			
+		}
+		if (!isNull(mobile)) {
+			if (!isPhoneNumber(mobile)) {
+				layer.msg("第"+contactNum+"联系人,"+"手机号输入错误", {time: 2000});
+				return false;
+			}
+			
+		}
+		if (!isNull(address)) {
+			if (address.length>100) {
+				layer.msg("第"+contactNum+"联系人,"+"详细地址过长", {time: 2000});
+				return false;
+			}
+		}
+		
+		if (!isNull(mobile) || !isNull(tel) || !isNull(address) || !isNull(isEmergencyContact) ) {
+			if (isNull(name)) {
+				layer.msg("第"+contactNum+"联系人,"+"姓名不能为空", {time: 2000});
+				return false;
+			}else if (isNull(relationship)) {
+				layer.msg("第"+contactNum+"联系人,"+"请选择与本人关系", {time: 2000});
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+
+	//获取checkbox 多选框的值
+	function getCheckBoxValue(checkboxId){
+		var checkboxValue=""
+		$("input[name='"+checkboxId+"']:checked").each(function(i){
+			if (isNull(checkboxValue)) {
+				checkboxValue+=$(this).val();
+			}else{
+				checkboxValue+=","+$(this).val();
+			}
+		})
+		return checkboxValue;
+	}	
+
+
+	//身份证号判断男女  1-男 2-女
+	function getSexByUserPid(card){
+		if(card%2==0){
+		 return 2;
+		}else{
+		  return 1;
+		}
+	}
+
+	//验证工资
+	function checkSalary(num){
+		var reg = /^([0]|([1-9][0-9]*)|(([0]\.\d{1,}|[1-9][0-9]*\.\d{1,})))$/;
+		if (!reg.test(num)) {
+		    return false;
+		}
+		reg = /^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/;
+		if (!reg.test(num)) {
+		    return false;
+		}
+		return true;
+	}
+
+	//转化日期 为了验证
+	function formateBirthDate(birthDate){
+		var  birth=birthDate;
+		birth = birth.replace("年","").replace("月","").replace("日","");
+		return birth;
+	}
+
+
+	//身份证号获取出生日期
+	function getBirthdayByUserPid(card){
+		return card.substr(6,8);  
+	}
+
+
+	//检查身份证号码是否符合规范，包括长度，类型
+	function checkUserPid(card)
+	{
+	    //身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X
+	    var reg = /(^\d{15}$)|(^\d{17}(\d|X|x)$)/;
+	    if(reg.test(card) === false)
+	    {
+	        return false;
+	    }
+	    return true;
+	};
+
+	//验证固定电话
+	function checkTel(tel)
+	{
+	    var reg = /(^\d{8,12}$)/;
+	    if(reg.test(tel) === false)
+	    {
+	        return false;
+	    }
+	    return true;
+	};
+
+	/**判断是否是手机号**/
+	function isPhoneNumber(tel) {
+	    var reg =/^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+	    return reg.test(tel);
+	}
+
+
+	function isNull(value) {
+		return value == null || value === "" || value === undefined;
+	}
+
+</script>
+</body>
+
+</html>

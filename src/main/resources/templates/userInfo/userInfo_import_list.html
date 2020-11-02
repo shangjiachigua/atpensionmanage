@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../css/thesame.css" media="all">
+	<link rel="stylesheet" href="../css/headCss.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/tree.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/rightCon.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/page.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/popCss.css" media="all">
+</head>
+<style type="text/css">
+	.pop-form-span .layui-input-block > .layui-btn{ height: 36px; line-height: 36px; float: left }
+	.pop-form-span .layui-input-block .layui-upload-choose {
+	    padding: 0 10px;
+	    color: #999;
+	    background-color: transparent;
+	}
+	.add-mess-child > div:nth-child(1) {
+	    width: 49px;
+	    text-align: left;
+	}
+</style>
+
+<body class="layui-layout-body">
+	<div class="layui-body ">
+		<!-- 内容主体区域 -->
+		<div class="bgWhite box-shadows1 border-radius4 scroll-box">
+			<div class="scroll-box-con border-radius4 bgWhite">
+				<div class="border-bot1px pb20px mb20px">
+					<div class="add-mess">
+						<div class="add-mess-child left">
+							<div>
+								<label><em class="red">*</em>小区：</label>
+							</div>
+							<div class="add-mess-form">
+								<p class="add-mess-form-tree"><input type="text" placeholder="请选择" class="form-input"></p>
+								<div class="tree-con-box">
+									<div class="border-bot1px pl20px pr20px lh45px gray"><span class="mr10px">/</span><span>无上级组织</span></div>
+									<ul class="tree-one">
+										<li>
+											<div class="tree-children">
+												<div>
+													<p class="tree-arrow cursor"><img src="img/icon_select_up.png"></p>
+													<p>111一级济阳街道</p>
+												</div>
+											</div>
+											<ul class="tree-two">
+												<li>
+													<div class="tree-children">
+														<div>
+															<p class="tree-arrow cursor"><img src="img/icon_select_up.png"></p>
+															<p>2222一级济阳街道</p>
+														</div>
+													</div>
+													<ul class="tree-three">
+														<li>
+															<div class="tree-children">
+																<div>
+																	<p class="tree-arrow cursor"><img src="img/icon_select_up.png"></p>
+																	<p>33333一级济阳街道</p>
+																</div>
+															</div>
+															<ul class="tree-four">
+																<li>
+																	<div class="tree-children">
+																		<div>
+																			<p class="tree-arrow cursor"><img src="img/icon_select_up.png"></p>
+																			<p>44444一级济阳街道</p>
+																		</div>
+																	</div>
+																	<ul class="tree-five">
+																		<li>
+																			<div class="tree-children">
+																				<div>
+																					<p>55555一级济阳街道</p>
+																				</div>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="tree-children">
+																				<div>
+																					<p>55555一级济阳街道</p>
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</li>
+																<li>
+																	<div class="tree-children">
+																		<div>
+																			<p>44444一级济阳街道</p>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</li>
+													</ul>
+													<ul class="tree-three">
+														<li>
+															<div class="tree-children">
+																<div>
+																	<p class="tree-arrow cursor"><img src="img/icon_select_up.png"></p>
+																	<p>33333一级济阳街道</p>
+																</div>
+															</div>
+															<ul class="tree-four">
+																<li>
+																	<div class="tree-children">
+																		<div>
+																			<p class="tree-arrow cursor"><img src="img/icon_select_up.png"></p>
+																			<p>44444一级济阳街道</p>
+																		</div>
+																	</div>
+																	<ul class="tree-five">
+																		<li>
+																			<div class="tree-children">
+																				<div>
+																					<p>55555一级济阳街道</p>
+																				</div>
+																			</div>
+																		</li>
+																		<li>
+																			<div class="tree-children">
+																				<div>
+																					<p>55555一级济阳街道</p>
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</li>
+																<li>
+																	<div class="tree-children">
+																		<div>
+																			<p>44444一级济阳街道</p>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+							
+						</div>
+						<div class="left">
+							<span onclick="query()" class="white border-radius4 bgGreen block pl20px pr20px ml30px lh34px">查&nbsp;询</span>
+						</div>
+					</div>
+				</div>
+				<div class="more-table-con clear relative">
+					<div class="mb15px">
+						<span style="color: #666">导入居民信息：</span>
+						<span style="color: #999">导入居民信息操作提示：请先选择居民户籍所在小区，选择查询完成定位，然后点击"导入居民信息"进行批量导入</span>
+					</div>
+					<div class="mb20px lh32px overflow add-btn-input">
+						<p class="left cursor">
+							<span onclick="layerOpenOfImport()" class="white border-radius4 bgGreen inline-block pl15px pr15px"><img src="img/button_dr.png">导入居民信息</span>
+						</p>
+						<div class="right">共有<span id="totalNum" class="red"> </span>条数据</div>
+					</div>
+					<div class="border1px border-radius4">
+						<table class="layui-hide" id="test" lay-filter="test"></table>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="pop-con" style="display: none;">
+		<div class="pop-up">
+			<div>
+				<div class="pop-title relative overflow mb15px">
+					<span class="ml15px">导入老人信息档案</span>
+					<p class="right"><img src="img/close_icon.png" class="block pop-close"><p>
+				</div>
+				<div class="pop-form pop-form-span mt30px mb30px">
+					<div class="layui-form-item">
+						<label class="layui-form-label">导入文件</label>
+						<div class="layui-input-block">
+							<button type="button" class="layui-btn layui-btn-normal" id="choseFileButton">选择文件</button>
+							<!-- <span onclick="importFileClick()">选&nbsp;择</span> -->
+							<!-- <span id="fileName"></span> -->
+						</div>
+						<!-- <input type="file" style="display:none" name="file" id="uploadFile"/> -->
+					</div>
+					<div class="layui-form-item">
+				       	<label class="layui-form-label">导入规则</label>
+				       	<div class="layui-input-block layui-input-block-two">
+					        <span value="1" class="current">只导增量</span>
+					        <span value="2">覆盖原有数据</span>
+				       	</div> 
+				    </div>
+				</div>
+				<div class="btn-con textCenter">
+					<span class="btn-one" onclick="cancel()">取&nbsp;消</span>
+					<span class="btn-two"  id="confirmButton" >提&nbsp;交</span>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../userinfo/js/treeTwo.js"></script>
+<script>
+
+	$(function(){
+		$('div.layui-input-block-two span').click(function(){
+	    	$(this).addClass('current').siblings().removeClass('current');
+	   	});
+		
+		//导入文件
+		layui.use('upload', function(){
+			var upload = layui.upload;
+			//选完文件后不自动上传
+		  	upload.render({
+		    	elem: '#choseFileButton'
+		    	,url: '../userInfo/importReport' //改成您自己的上传接口
+		    	,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+				    layer.load(); //上传loading
+				}
+		    	,auto: false
+		    	,accept: 'file'
+		    	,bindAction: '#confirmButton'
+		    	,exts:'xls|xlsx'
+		    	,data:{
+		    		//增加或者覆盖 1-增加 2-覆盖
+		    		addOrCover:function(){
+		    			// console.log($(".layui-input-block-two .current").attr("value"));
+		    			return $(".layui-input-block-two .current").attr("value");
+		    		}
+		    	}
+		    	,done: function(res){
+		    		if (res.code==200) {
+		    			layer.closeAll();
+		    			layer.msg('上传成功,'+res.msg, {icon: 1});
+		    		}else{
+		    			layer.closeAll();
+		    			layer.msg(res.msg, {icon: 2});
+		    		}
+		    	}
+		  	});
+		})
+
+
+		//查询
+		query();
+
+
+
+	})
+
+	
+
+	//查询
+	function query(){	
+		//左侧菜单栏
+		layui.use(['element', 'table','layer'], function() {
+			var layer = layui.layer;
+			var table = layui.table;
+			
+			//第一个实例
+			table.render({
+				elem: '#test'//,url: '/demo/table/user/'
+				,url:"../userInfo/getReportRecordList"
+				,where:{}
+				,request: {
+					 pageName: 'currentPage' //页码的参数名称，默认：page
+					 ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+				}
+				//,count: 10  //数据总数，从服务端得到
+				//,data: listData
+				,page: true //开启分页
+				,limit:10 //每页显示的条数
+				//,limits:[3,4,5]
+				,groups: 9 //连续页码个数
+				,parseData:function(res){
+					// console.log(res);
+					return{
+						"code":res.code,
+						"data":res.data.data,
+						"count":res.data.totalCount,
+						"limit":res.data.pageSize,
+					};
+				}
+				,cols: [
+					[ //表头
+						{
+							field: 'id',
+							title: '编号',
+							fixed: 'left',
+							type: 'numbers',
+							width:100
+						}, {
+							field: 'formatCreateTime',
+							title: '导入时间',
+						}, {
+							field: 'formatReportTypeName',
+							title: '导入类型',
+						}, {
+							field: 'formatOrgName',
+							title: '机构名称',
+						}, {
+							field: 'reportName',
+							title: '导入文件',
+							templet:function(res){
+								return '<div class="green" onclick="getOriginalExcel(\''+res.id+'\')">'+res.reportName+'</div>';
+							}
+						}, {
+							field: 'sysName',
+							title: '操作员',
+						}, {
+							field: 'importResult',
+							title: '导入结果',
+							width:350,
+							templet: function(res){
+								if (res.failCount ==0) {
+									return '<div><span>成功导入<em class="blue">'+res.successCount+' </em>条记录，</span><span>失败<em class="red">'+res.failCount+' </em>条，</span><span>查看<em>错误日志</em></span></div>'
+								}else{
+									return '<div><span>成功导入<em class="blue">'+res.successCount+' </em>条记录，</span><span>失败<em class="red">'+res.failCount+' </em>条，</span><span>查看<em onclick="getErrorLogExcel(\''+res.id+'\')" class="green">错误日志</em></span></div>'
+								}
+							}
+						}
+					]
+				]
+				,done:function(res, curr, count){
+				    $("#totalNum").text(count);
+				}
+			});
+			
+		});
+
+
+	}
+
+
+	//错误日志下载
+	function getErrorLogExcel(reportId){
+		// console.log(reportId);
+		window.location.href="../userInfo/getErrorLogUserInfoExcel?reportId="+reportId;
+	}
+
+	//获取原始的excel
+	function getOriginalExcel(reportId){
+		window.location.href="../userInfo/getOriginalExcelUserInfo?reportId="+reportId;
+	}
+
+
+	//导入弹层
+	function layerOpenOfImport(){
+		layer.open({
+			type: 1,
+			title: false, //不显示标题栏
+			closeBtn: false,
+			area: ['$("div#pop-con")', ''],
+			shade: 0.6,
+			id: 'payCons', //设定一个id，防止重复弹出
+			/*,btn: ['确认支付']*/
+			btnAlign: 'c',
+			moveType: 1, //拖拽模式，0或者1
+			shadeClose: true, //设置允许点遮罩关闭
+			content: $("div#pop-con"),
+			success: function() {
+				//关闭弹层
+				$(".pop-close").click(function() {
+					layer.closeAll();
+				});
+			},
+	
+		});
+	}
+
+
+
+
+	//判断是否有文件
+	$("#confirmButton").click(function(){
+		var fileName = $(".layui-inline layui-upload-choose").text();
+		if (isNull(fileName)) {
+			layer.msg('请选择文件', {time: 2000});
+			return;
+		}
+	})
+
+		
+	
+		
+
+
+	//取消
+	function cancel(){
+		layer.closeAll();
+	}
+
+	function isNull(value) {
+		return value == null || value === "" || value === undefined;
+	}
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="../css/thesame.css" media="all">
+	<link rel="stylesheet" href="../css/headCss.css" media="all">
+	<link rel="stylesheet" href="../css/footer.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/popCss.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/rightCon.css" media="all">
+	<link rel="stylesheet" href="../userinfo/css/page.css" media="all">
+
+</head>
+<style type="text/css">
+	.new-add-left li {
+		margin-bottom: 0;
+	}
+</style>
+<body class="layui-layout-body">
+	<input type="hidden" id="userNo" th:value="${userInfo.userNo}">
+
+	<div class="layui-body">
+		<!-- 内容主体区域 -->
+		<div class="add-title pad25px"><span class="mr10px"><img src="../userInfo/img/return_icon.png"></span><span>信息查看</span></div>
+		<div class="new-add-box bgWhite box-shadows border-radius4 ">
+			<div class="new-add-box-scroll">
+				<div class="mb25px">
+					<div class="new-add-title relative overflow mb15px"><span class="ml15px">基本信息</span></div>
+					<div class="new-add-con new-add-form pb25px border-bot1px">
+						<article class="new-add-left new-add-form-con">
+							<ul class="overflow lh32px">
+								<li>
+									<p><label>姓名：</label></p>
+									<p th:text="${userInfo.userName}"></p>
+								</li>
+								<li>
+									<p><label>年龄：</label></p>
+									<p th:text="${userInfo.age}+'岁'"></p>
+								</li>
+								<li>
+									<p><label>性别：</label></p>
+									<p th:text="${userInfo.userSex}"></p>
+								</li>
+								<li>
+									<p><label>出生日期：</label></p>
+									<p th:text="${userInfo.birthDate}"></p>
+								</li>
+								<li>
+									<p><label>证件类型：</label></p>
+									<p th:text="${userInfo.certificateType}"></p>
+								</li>
+								<li>
+									<p><label>证件编号：</label></p>
+									<p th:text="${userInfo.userPid}"></p>
+								</li>
+								<li>
+									<p><label>户籍：</label></p>
+									<p th:text="${userInfo.householdRegister}"></p>
+								</li>
+								<li>
+									<p><label>民族：</label></p>
+									<p th:text="${userInfo.nation}"></p>
+								</li>
+								<li>
+									<p><label>所在地区：</label></p>
+									<p th:text="${userInfo.location}"></p>
+								</li>
+								<li>
+									<p><label>婚姻状况：</label></p>
+									<p th:text="${userInfo.marriage}"></p>
+								</li>
+								<li>
+									<p><label>户籍地址：</label></p>
+									<p th:text="${userInfo.registerAddress}"></p>
+								</li>
+								<li>
+									<p><label>户籍行政区：</label></p>
+									<p th:text="${userInfo.registerAreaOfResidence}"></p>
+								</li>
+								<li>
+									<p><label>居住地址：</label></p>
+									<p th:text="${userInfo.liveAddress}"></p>
+								</li>
+								<li>
+									<p><label>居住行政区：</label></p>
+									<p th:text="${userInfo.liveAreaOfResidence}"></p>
+								</li>
+								<li>
+									<p><label>社保类型：</label></p>
+									<p th:text="${userInfo.socialSecurityType}"></p>
+								</li>
+								<li>
+									<p><label>社保卡号：</label></p>
+									<p th:text="${userInfo.socialSecurityCardNo}"></p>
+								</li>
+								<li>
+									<p><label>手机号码：</label></p>
+									<p th:text="${userInfo.mobile}"></p>
+								</li>
+								<li>
+									<p><label>固定号码：</label></p>
+									<p th:text="${userInfo.tel}"></p>
+								</li>
+								<li>
+									<p><label>文化程度：</label></p>
+									<p th:text="${userInfo.degreeOfEducation}"></p>
+								</li>
+								<li>
+									<p><label>政治面貌：</label></p>
+									<p th:text="${userInfo.political}"></p>
+								</li>
+								<li>
+									<p><label>退休单位：</label></p>
+									<p th:text="${userInfo.retireCompany}"></p>
+								</li>
+								<li>
+									<p><label>退休工资：</label></p>
+									<p th:text="${userInfo.retireSalary}"></p>
+								</li>
+								<li>
+									<p><label>职业：</label></p>
+									<p th:text="${userInfo.occupation}"></p>
+								</li>
+								<li>
+									<p><label>退休时间：</label></p>
+									<p th:text="${userInfo.retireTime}"></p>
+								</li>
+								<li>
+									<p><label>所属管辖机构：</label></p>
+									<p th:text="${userInfo.registerAreaOfResidence}"></p>
+								</li>
+								<li>
+									<p><label>居住状态：</label></p>
+									<p th:text="${userInfo.liveCondition}"></p>
+								</li>
+								<li>
+									<p><label>当前状态：</label></p>
+									<p th:text="${userInfo.status}"></p>
+								</li>
+							</ul>
+						</article>
+						<article class="new-add-right">
+							<dl class="inline-block relative">
+								<dt>
+									<p class="filejs" th:if="${ #strings.isEmpty(userInfo.imgPath) }">
+										<img src="../userInfo/img/moren.png" class="bock">
+									</p>
+									<p class="filejs" th:if="${not #strings.isEmpty(userInfo.imgPath) }">
+										<img th:src="${userInfo.imgPath}" class="bock">
+									</p>
+								</dt>
+							</dl>
+						</article>
+					</div>
+				</div>
+				<div class="mb25px">
+					<div class="layui-tab pb20px">
+						<ul class="layui-tab-title">
+							<li class="layui-this" >基本信息</li>
+							<li>供餐管理</li>
+							<li>便民服务</li>
+							<li>健康档案</li>
+						</ul>
+						<div class="layui-tab-content padding0 border1px" style="border-top: 0; padding: 20px;">
+							<div class="layui-tab-item layui-show relative">
+								
+								<div class="mb25px  pb25px border-bot1px">
+									<div class="new-add-title relative overflow mb15px"><span class="ml15px">主要联系人</span></div>
+									<div class="border1px border-radius4">
+										<table class="layui-table layui-table-header">
+											<thead>
+												<tr>
+													<th>行号</th>
+													<th>姓名</th>
+													<th>与本人关系</th>
+													<th>固定电话</th>
+													<th>详细地址</th>
+													<th>手机号码</th>
+													<th>紧急联系人</th>
+												</tr>
+											</thead>
+
+											<tbody th:if="${#lists.isEmpty(userInfo.userInfoContactList)}">
+									          <tr>
+									           	<td colspan="7">无主要联系人</td>
+									          </tr>
+									        </tbody>
+											<tbody>
+												<tr  th:each="contact:${userInfo.userInfoContactList}">
+													<td th:text="${contactStat.index+1}"></td>
+													<td th:text="${contact.contactName}"></td>
+													<td th:text="${contact.relationship}"></td>
+													<td th:text="${contact.tel}"></td>
+													<td th:text="${contact.address}"></td>
+													<td th:text="${contact.mobile}"></td>
+													<td th:if="${contact.isEmergencyContact}==1">
+														<img src="../userInfo/img/duigou.png">
+													</td>
+													<td th:if="${contact.isEmergencyContact}==2">
+														<img src="">
+													</td>
+												</tr>
+												<!-- <tr>
+													<td>1</td>
+													<td>小茗同学</td>
+													<td>配偶</td>
+													<td>9999898989</td>
+													<td>上海市普陀区中江路</td>
+													<td></td>
+													<td></td>
+												</tr> -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="mb25px">
+									<div class="new-add-title relative overflow mb15px"><span class="ml15px">健康状况</span></div>
+									<ul class="overflow new-add-textarea pb25px border-bot1px">
+										<li class="relative">
+											<p><label>健康状况既往疾病史：</label></p>
+											<p th:text="${userInfo.healthDescription}"></p>
+										</li>
+									</ul>
+								</div>
+								<div class="mb25px">
+									<div class="new-add-title relative overflow mb15px"><span class="ml15px">服务类型</span></div>
+									<div class="new-add-con pb25px border-bot1px">
+										<article class="new-add-left new-add-left-two">
+											<ul class="overflow">
+												<li>
+													<p><label>目前养老状况：</label></p>
+													<p th:text="${userInfo.pensionStatus}"></p>
+												</li>
+												<li class="width-three layui-form">
+													<p><label>照顾人群：</label></p>
+													<p th:text="${userInfo.careCrowd}"></p>
+												</li>
+											</ul>
+										</article>
+									</div>
+								</div>
+								<div class="mb25px">
+									<div class="new-add-title relative overflow mb15px"><span class="ml15px">其他标签</span></div>
+									<div class="pb25px border-bot1px">
+										<ul class="layui-form layui-form-color">
+											<li class="overflow mb10px">
+												<p class="left"><label>居家情况：</label></p>
+												<p class="left" th:text="${userInfo.liveHomeStatus}"></p>
+											</li>
+											<li class="overflow mb10px">
+												<p class="left"><label>持证情况：</label></p>
+												<p class="left" th:text="${userInfo.holdCertificateStatus}"></p>
+											</li>
+											<li class="overflow mb10px">
+												<p class="left"><label>认知情况：</label></p>
+												<p class="left" th:text="${userInfo.cognitionStatus}"></p>
+											</li>
+											<li class="overflow mb10px">
+												<p class="left"><label>涉外情况：</label></p>
+												<p class="left" th:text="${userInfo.foreignIdentityStatus}"></p>
+											</li>
+											<li class="overflow mb10px">
+												<p class="left"><label>安全情况：</label></p>
+												<p class="left" th:text="${userInfo.safeStatus}"></p>
+											</li>
+											<li class="overflow mb10px">
+												<p class="left"><label>健康情况：</label></p>
+												<p class="left" th:text="${userInfo.healthStatus}"></p>
+											</li>
+											<li class="overflow mb10px">
+												<p class="left"><label>其他情况：</label></p>
+												<p class="left" th:text="${userInfo.otherStatus}"></p>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="layui-tab-item layui-time-img">
+								<div class="overflow lh32px border-bot1px pb20px">
+									<div class="overflow left">
+										<p class="left">送餐开始日期：</p>
+										<p class="left"><input type="text" name="price_min" placeholder="2020-12-12" class="layui-input test-item"></p>
+									</div>
+									<div class="overflow left mr40px ml40px">
+										<p class="left">送餐开始日期：</p>
+										<p class="left"><input type="text" name="price_min" placeholder="2020-12-12" class="layui-input test-item"></p>
+									</div>
+									<div class="left"><span class="block border-radius4 white bgGreen white pl20px pr20px">查&nbsp;询</span></div>
+								</div>
+								<div class="new-add-title relative overflow mt20px mb20px"><span class="ml15px">送餐情况</span></div>
+								<div id="main1" style="width: 700px; height: 400px;"></div>
+							</div>
+							<div class="layui-tab-item">
+								<div class="new-add-title relative overflow mb15px"><span class="ml15px">优惠卷信息</span></div>
+								<ul class="disco-ul">
+									<li>
+										<p>
+											<span>理发券发放数/年：</span>
+											<span th:text="${bmUserInfoOfFair?.totalCoupons}"></span>
+										</p>
+										<p>
+											<span>理发券已用数/年：</span>
+											<span th:text="${bmUserInfoOfFair?.usedCoupons}"></span>
+										</p>
+										<p>
+											<span>剩余理发券数/年：</span>
+											<span th:text="${bmUserInfoOfFair?.unusedCoupons}"></span>
+										</p>
+									</li>
+									<li>
+										<p>
+											<span>缝纫券发放数/年：</span>
+											<span th:text="${bmUserInfoOfSewing?.totalCoupons}"></span>
+										</p>
+										<p>
+											<span>缝纫券已用数/年：</span>
+											<span th:text="${bmUserInfoOfSewing?.usedCoupons}"></span>
+										</p>
+										<p>
+											<span>剩余缝纫券数/年：</span>
+											<span th:text="${bmUserInfoOfSewing?.unusedCoupons}"></span>
+										</p>
+									</li>
+								</ul>
+								<nav class="layui-form more-date mt15px mb15px">
+									<p class="fb f16px mb15px">消费明细：</p>
+									<ul>
+										
+										<li>
+											<div>时间</div>
+											<div>
+												<p class="layui-time-img"> 
+													<span class="layui-input-inline" style="width: 160px;">
+														<input type="text"  id="bmTimeStart" placeholder="1988-12-12" autocomplete="off" class="layui-input test-item1">
+													</span>
+													<span>&nbsp;-&nbsp;</span>
+													<span class="layui-input-inline" style="width: 160px;">
+														<input type="text"  id="bmTimeEnd" placeholder="1988-12-12" autocomplete="off" class="layui-input test-item2">
+													</span>
+												</p>
+												<!-- <p><span class="mr20px">最近：</span><span class="mr20px">1个月</span><span class="mr20px">3个月</span><span class="mr20px">6个月</span></p> -->
+											</div>
+										</li>
+										<!-- <li>
+											<div>状态</div>
+											<div class="select-cur">
+												<p class="green">不限</p>
+												<p>未使用</p>
+												<p>已使用</p>
+												<p>失效</p>
+											</div>
+										</li> -->
+										<li>
+											<div>类型</div>
+											<div class="select-cur">
+												<p value="" class="green">不限</p>
+												<p value="1">理发券</p>
+												<p value="2">缝纫券</p>
+											</div>
+										</li>
+									</ul>
+								</nav>
+								<table class="layui-hide tab-con-next" id="test" lay-filter="test"></table>
+							</div>
+
+							<div class="layui-tab-item ">
+								<div class="layui-tab layui-tab-parent">
+									<ul class="layui-tab-title">
+										<li class="layui-this">基本信息</li>
+										<li>体格检查</li>
+										<li>血糖记录</li>
+										<li >血压记录</li>
+									</ul>
+									<div class="layui-tab-content layui-tab-content-child padding0 border1px" style="padding: 20px;">
+										<div class="layui-tab-item layui-show">
+											<nav class="border-bot1px pb20px mb20px">
+												<div class="new-add-title relative overflow mb15px"><span class="ml15px">老人基本信息</span></div>
+												<ul class="disco-ul">
+													<li>
+														<p>
+															<span>住院编号：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>供病史者：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>主诉：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>现病史：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>既往史：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>层患病：</span>
+															<span>20202020</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>传染病：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>手术史：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>手术部位：</span>
+															<span>20202020</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>食物、药物过敏史：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>重要药物应用史：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>疫区疫水接触史：</span>
+															<span>20202020</span>
+														</p>
+													</li>
+
+													<li>
+														<p>
+															<span>嗜烟：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>抽烟情况：</span>
+															<span>20202020</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>饮酒：</span>
+															<span>20202020</span>
+														</p>
+														<p>
+															<span>饮酒情况：</span>
+															<span>20202020</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>生理情况：</span>
+															<span>20202020</span>
+														</p>
+													</li>
+												</ul>
+											</nav>
+											<nav class="border-bot1px pb20px mb20px">
+												<div class="new-add-title relative overflow mb15px"><span class="ml15px">家庭信息</span></div>
+												<ul class="disco-ul">
+													<li>
+														<p>
+															<span>婚姻：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>配偶：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>夫妻关系：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>子女：</span>
+															<span>12</span>
+														</p>
+													</li>
+												</ul>
+											</nav>
+											<nav class="border-bot1px pb20px mb20px">
+												<div class="new-add-title relative overflow mb15px"><span class="ml15px">依赖信息</span></div>
+												<ul class="disco-ul">
+													<li>
+														<p>
+															<span>进食：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>个人卫生：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>行走：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>上下床：</span>
+															<span>12</span>
+														</p>
+													</li>
+												</ul>
+											</nav>
+											<nav class="border-bot1px pb20px mb20px">
+												<div class="new-add-title relative overflow mb15px"><span class="ml15px">身体情况</span></div>
+												<ul class="disco-ul">
+													<li>
+														<p>
+															<span>饮食：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>食欲：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>其他情况：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>排便：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>每日次数：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>其他情况：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>排尿：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>其他情况：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>睡眠：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>辅助药物：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>午睡：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>家族史(遗传病史)：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>备注：</span>
+															<span>无</span>
+														</p>
+													</li>
+												</ul>
+											</nav>
+										</div>
+										<div class="layui-tab-item">
+											
+											<nav class="border-bot1px pb20px mb20px">
+												<div class="new-add-title relative overflow mb15px"><span class="ml15px">身体情况</span></div>
+												<ul class="disco-ul">
+													<li>
+														<p>
+															<span>饮食：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>食欲：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>其他情况：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>排便：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>每日次数：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>其他情况：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>排尿：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>其他情况：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>睡眠：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>辅助药物：</span>
+															<span>12</span>
+														</p>
+														<p>
+															<span>午睡：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>家族史(遗传病史)：</span>
+															<span>12</span>
+														</p>
+													</li>
+													<li>
+														<p>
+															<span>备注：</span>
+															<span>无</span>
+														</p>
+													</li>
+												</ul>
+											</nav>
+
+
+											
+										</div>
+										<div class="layui-tab-item">
+											<div class="new-add-title relative overflow mb15px"><span class="ml15px">近七天血糖记录</span></div>
+											<div id="main2" style="width: 700px; height: 500px;"></div>
+										</div>
+										<div class="layui-tab-item ">
+											<div class="new-add-title relative overflow mb15px"><span class="ml15px">近七天血压记录</span></div>
+											<div id="main3" style="width: 700px; height: 500px;"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-footer layui-footer-one">
+		<div class="btn-con textCenter"> 
+			<span class="btn-one" onclick="backList()">返回列表</span>
+			<span class="btn-two" onclick="getPdf()">导出为PDF文件</span>
+			<span class="btn-three" onclick="editArchives()">编辑档案</span>
+			<span class="btn-three" onclick="deleteArchives()">删除档案</span>
+			<span class="btn-four" onclick="dealDeathTipLayerOpen()">离世处理</span>
+		</div>
+	</div>
+	
+
+	<!--离世操作 提示框-->
+	<div id="dealDeathTip" style="display: none;">
+		<div class="pop-up">
+			<div>
+				<dl class="textCenter">
+					<dt><img src="img/jingshi.png"></dt>
+					<dd class="mt15px mb20px">你是否要对张大奕执行离世操作？</dd>
+				</dl>
+				<div class="btn-con textCenter">
+					<span class="btn-one" onclick="dealDeathCancel()">取消</span>
+					<span class="btn-bgRed" onclick="dealDeathConfirm()">去顶此人已离世</span>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!--离世操作 离世信息填写-->
+	<div id="dealDeathInformation" style="display: none;">
+		<div class="pop-up">
+			<!--离世信息填写-->
+			<div>
+				<div class="pop-title relative overflow mb15px">
+					<span class="ml15px">离世信息填写</span>
+					<p class="right"><img src="img/close_icon.png" class="block pop-close"><p>
+				</div>
+				<div class="pop-form mt30px mb30px">
+					<div class="layui-form-item">
+						<label class="layui-form-label">离世日期</label>
+						<div class="layui-input-block">
+							<input type="text" id="deathDate" placeholder="请选择离世日期" class="layui-input layui-time test-item-death">
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">离世原因</label>
+						<div class="layui-input-block">
+							<input type="text" id="deathReason" placeholder="请输入离世原因" class="layui-input">
+						</div>
+					</div>
+				</div>
+				<div class="btn-con textCenter">
+					<span class="btn-one" onclick="dealDeathCancel()">取&nbsp;消</span>
+					<span class="btn-two" onclick="confirmDeath()">提&nbsp;交</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../layui/layui.js" charset="utf-8"></script>
+<script src="../js/echarts.min.js" charset="utf-8"></script>
+<script src="../userinfo/js/data1.js" charset="utf-8"></script>
+<script>
+
+
+	$(function(){
+		$('.select-cur p').click(function(){
+			$(this).addClass('green').siblings().removeClass('green');
+			BMList();
+		})
+
+		layui.use(['laydate'], function() {
+			var laydate = layui.laydate;
+			laydate.render({
+				elem: '.test-item',
+				trigger: 'click',
+			});
+// test-item1 test-item2
+			var bmStart = laydate.render({
+				// elem: '#bmTimeStart'
+				elem: '.test-item1'
+				,done: function(value, date, endDate){
+					if(value!=""){
+						date.month=date.month-1;
+						bmEnd.config.min=date;
+					}else{
+						bmEnd.config.min=bmStart.config.min;
+					}
+					BMList();
+				}
+			});
+			var bmEnd = laydate.render({
+				// elem: '#bmTimeEnd'
+				elem: '.test-item2'
+				,done: function(value, date, endDate){
+					if(value!=""){
+				       date.month=date.month-1;
+				       bmStart.config.max=date;
+					}else{
+						bmStart.config.max=bmEnd.config.max;
+					}
+					BMList();
+				}
+			});
+			laydate.render({
+				elem: '.test-item-death',
+				trigger: 'click',
+				format: 'yyyy年MM月dd日', 
+			});
+		});
+
+		BMList();
+	})
+
+
+	/****************************基本信息********************************/
+
+	//导出pdf
+	function getPdf(){
+		var userNo = $("#userNo").val();
+		window.location.href="../userInfo/getPdfByUserNo?userNo="+userNo;
+	}
+
+
+	//死亡处理 提示框
+	function dealDeathTipLayerOpen(){
+		layer.open({
+			type: 1,
+			title: false, //不显示标题栏
+			closeBtn: false,
+			area: ['400px', ''],
+			shade: 0.6,
+			id: 'payCons', //设定一个id，防止重复弹出
+			/*,btn: ['确认支付']*/
+			btnAlign: 'c',
+			moveType: 1, //拖拽模式，0或者1
+			shadeClose: true, //设置允许点遮罩关闭
+			content: $("div#dealDeathTip"),
+			success: function() {
+				//关闭弹层
+				$(".pop-close").click(function() {
+					layer.closeAll();
+				});
+			},
+
+		});
+	}
+
+	//死亡信息框
+	function dealDeathInformation(){
+		layer.closeAll();
+		layer.open({
+			type: 1,
+			title: false, //不显示标题栏
+			closeBtn: false,
+			area: ['400px', ''],
+			shade: 0.6,
+			id: 'payConsD', //设定一个id，防止重复弹出
+			/*,btn: ['确认支付']*/
+			btnAlign: 'c',
+			moveType: 1, //拖拽模式，0或者1
+			shadeClose: true, //设置允许点遮罩关闭
+			content: $("div#dealDeathInformation"),
+			success: function() {
+				//关闭弹层
+				$(".pop-close").click(function() {
+					layer.closeAll();
+				});
+			},
+
+		});
+	}
+
+	//离世处理取消
+	function dealDeathCancel(){
+		layer.closeAll();
+	}
+	//离世处理 - 确认死亡
+	function dealDeathConfirm(){
+		dealDeathInformation();
+	}
+	//确认死亡
+	function confirmDeath(){
+		var userNo = $("#userNo").val();
+		var deathDate = $("#deathDate").val();
+		var deathReason = $("#deathReason").val();
+		if (isNull(deathDate)) {
+			layer.msg('离世日期不能为空', {time: 2000});
+			return;
+		}
+		if (isNull(deathReason)) {
+			layer.msg('离世原因不能为空', {time: 2000});
+			return;
+		}else if (deathReason.length>50) {
+			layer.msg('离世原因过长', {time: 2000});
+			return;
+		}
+
+		var formDate =
+        {
+            userNo: userNo ,
+            deathDate : deathDate,
+            deathReason : deathReason
+        };
+
+		$.ajax({
+            url: "../userInfo/dealDeathUserInfoByUserNo",
+            type: "post",
+            dataType: "json",
+            data: formDate,
+            async: false,
+            success: function (res) {	
+                if (res.code == "200") {
+                	layer.closeAll();
+                	layer.msg('处理成功', {icon: 1,time:1500},function(){
+                		//删除成功 返回列表页
+                		window.location.href="../userInfo/jumpUserInfoDetailOfDeath?userNo="+userNo;
+                	});
+                }else{
+                	layer.msg(res.msg, {icon: 2});
+                }
+            },
+        });
+
+	}
+
+
+	//返回列表
+	function backList(){
+		window.location.href="../userInfo/jumpUserInfoList";
+	}
+
+	//修改档案
+	function editArchives(){
+		var userNo = $("#userNo").val();
+		window.location.href="../userInfo/jumpUserInfoUpdate?userNo="+userNo;
+	}
+
+	//删除档案
+	function deleteArchives(){
+		layer.confirm('确定要删除档案么？', {
+		  btn: ['确定', '取消'] //可以无限个按钮
+		}, function(index, layero){
+		  	del();
+		}, function(index){
+		  
+		});
+	}
+	//删除
+	function del(){
+		var userNo = $("#userNo").val();
+		var formDate =
+        {
+            userNo: userNo
+        };
+
+		$.ajax({
+            url: "../userInfo/deleteUserInfoByUserNo",
+            type: "post",
+            dataType: "json",
+            data: formDate,
+            async: false,
+            success: function (res) {	
+                if (res.code == "200") {
+                	layer.msg('删除成功', {icon: 1,time:1500},function(){
+                		//删除成功 返回列表页
+                		window.location.href="../userInfo/jumpUserInfoList";
+                	});
+                }else{
+                	layer.msg(res.msg, {icon: 2});
+                }
+            },
+        });
+	}
+
+	//便民服务列表
+	function BMList(){
+		var userNo = $("#userNo").val();
+		var startTime = $("#bmTimeStart").val();
+		var endTime = $("#bmTimeEnd").val();
+		var type = $('.select-cur .green').attr("value");
+
+		if (isNull(startTime) && !isNull(endTime) ) {
+			layer.msg('请选择完整的日期', {time: 2000});
+			return;
+		}else if (!isNull(startTime) && isNull(endTime)) {
+			layer.msg('请选择完整的日期', {time: 2000});
+			return;
+		}
+
+		// console.log(type);
+		// console.log(startTime);
+		// console.log(endTime);
+
+		var formDate ={
+			startTime : startTime,
+			endTime : endTime,
+			type : type,
+			userNo : userNo
+		}
+
+		layui.use(['element', 'table'], function() {
+			var element = layui.element;
+			var table = layui.table;
+			
+			//第一个实例
+			table.render({
+				elem: '#test'//,url: '/demo/table/user/'
+				,url:"../userInfo/getBmCouponsRecordListOfUserInfoId"
+				,where: formDate
+				,request: {
+					 pageName: 'currentPage' //页码的参数名称，默认：page
+					 ,limitName: 'pageSize' //每页数据量的参数名，默认：limit
+				}
+				//,count: 10  //数据总数，从服务端得到
+				//,data: listData
+				,page: true //开启分页
+				,limit:10 //每页显示的条数
+				//,limits:[3,4,5]
+				,groups: 9 //连续页码个数
+				,parseData:function(res){
+					return{
+						"code":res.code,
+						"data":res.data.data,
+						"count":res.data.totalCount,
+						"limit":res.data.pageSize,
+					};
+				}
+				,cols: [
+					[ //表头
+						{
+							field: 'id',
+							title: '序号',
+							type: 'numbers',
+						}, {
+							field: 'type',
+							title: '类型',
+						}, {
+							field: 'createdTime',
+							title: '日期',
+						}, {
+							field: 'sourceUse',
+							title: '来源/使用地点',
+						}, {
+							field: 'hairCut',
+							title: '优惠卷明细',
+							templet: function(res){
+								//消费类型（1.发放2.消费）
+								if (res.hairCut==1) {
+									return '<div>+'+res.number+'</div>';
+								}else if(res.hairCut==2){
+									return '<div>-'+res.number+'</div>';
+								}else{
+									return '<div></div>';
+								}
+							}
+						}
+					]
+				]
+			});
+			
+		});
+	}
+
+
+
+
+
+	function isNull(value) {
+		return value == null || value === "" || value === undefined;
+	}
+
+
+
+</script>	
+</body>
+
+</html>
